@@ -15,7 +15,7 @@ export default function Skills() {
         },
         {
           category: 'Backend',
-          skills: ['Node.js', 'PostgreSQL', 'APIs REST', 'Architecture Web','MariaDB'],
+          skills: ['Node.js', 'PostgreSQL', 'APIs REST', 'Architecture Web'],
         },
         {
           category: 'IA & ML',
@@ -23,7 +23,7 @@ export default function Skills() {
         },
         {
           category: 'Tools & Platforms',
-          skills: ['Git', 'GitHub', 'HuggingFace', 'Linux', "GitLab"],
+          skills: ['Git', 'GitHub', 'HuggingFace', 'Vercel', 'Linux'],
         },
       ],
     },
@@ -36,7 +36,7 @@ export default function Skills() {
         },
         {
           category: 'Backend',
-          skills: ['Node.js', 'PostgreSQL', 'REST APIs', 'Web Architecture','MariaDB'],
+          skills: ['Node.js', 'PostgreSQL', 'REST APIs', 'Web Architecture'],
         },
         {
           category: 'AI & ML',
@@ -44,7 +44,7 @@ export default function Skills() {
         },
         {
           category: 'Tools & Platforms',
-          skills: ['Git', 'GitHub', 'HuggingFace', 'Vercel', 'Linux', "GitLab"],
+          skills: ['Git', 'GitHub', 'HuggingFace', 'Vercel', 'Linux'],
         },
       ],
     },
