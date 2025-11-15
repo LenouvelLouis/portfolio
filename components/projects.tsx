@@ -14,7 +14,7 @@ export default function Projects() {
                 link: 'https://huggingface.co/spaces/LenouvelLouisDev/California-Housing-API',
                 github: 'https://github.com/LenouvelLouis',
                 viewText: 'Voir le projet →',
-                image: 'https://images.unsplash.com/photo-1526374965328-7f5ae4e8cfb2?w=800&q=80',
+                image: '/projects/california-housing.jpg',
             },
             {
                 title: 'Portail IKIGAI',
@@ -24,7 +24,7 @@ export default function Projects() {
                 link: null,
                 github: null,
                 viewText: 'Voir le projet →',
-                image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80',
+                image: '/projects/ikigai-portal.jpg',
             },
         ],
         en: [
@@ -36,7 +36,7 @@ export default function Projects() {
                 link: 'https://huggingface.co/spaces/LenouvelLouisDev/California-Housing-API',
                 github: 'https://github.com/LenouvelLouis',
                 viewText: 'View project →',
-                image: 'https://images.unsplash.com/photo-1526374965328-7f5ae4e8cfb2?w=800&q=80',
+                image: '/projects/california-housing.jpg',
             },
             {
                 title: 'IKIGAI Portal',
@@ -46,7 +46,7 @@ export default function Projects() {
                 link: null,
                 github: null,
                 viewText: 'View project →',
-                image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80',
+                image: '/projects/ikigai-portal.jpg',
             },
         ],
     }
