@@ -46,19 +46,19 @@
 ### Installation
 
 1. **Clone and install**
-   \`\`\`bash
+   ```bash
    git clone https://github.com/LenouvelLouis/astro-eportfolio.git
    cd astro-eportfolio
    pnpm install
-   \`\`\`
+   ```
 
 2. **Start development server**
-   \`\`\`bash
+   ```bash
    pnpm run dev
-   \`\`\`
+   ```
 
 3. **Open in browser**
-   - Navigate to `http://localhost:3000`
+   - Navigate to `http://localhost:4321/portfolio/`
    - Start editing files in `src/` to see changes instantly
 
 ---
@@ -66,9 +66,9 @@
 ## 📦 Build & Deploy
 
 ### Local Build
-\`\`\`bash
+```bash
 pnpm run build
-\`\`\`
+```
 
 ### Deploy to GitHub Pages
 
@@ -77,9 +77,9 @@ pnpm run build
 - GitHub Actions automatically builds and deploys
 
 **Manual:**
-\`\`\`bash
+```bash
 pnpm run deploy
-\`\`\`
+```
 
 Your site will be live at: `https://LenouvelLouis.github.io`
 
@@ -87,7 +87,7 @@ Your site will be live at: `https://LenouvelLouis.github.io`
 
 ## 📁 Project Structure
 
-\`\`\`
+```
 src/
 ├── components/          # React interactive components
 │   ├── Hero.tsx         # Hero section with language toggle
@@ -105,8 +105,9 @@ src/
 ├── styles/
 │   └── globals.css      # Tailwind + custom styles
 └── public/
-    └── favicon.svg      # Site favicon
-\`\`\`
+    └── projects
+          └── project
+```
 
 ---
 
@@ -130,30 +131,6 @@ src/
 - **Fonts:** Configured in Tailwind theme
 - **Layout:** Tailwind CSS classes (modify breakpoints in `tailwind.config.ts`)
 
-### Add Projects
-
-In `src/components/Projects.tsx`, add your projects:
-
-\`\`\`typescript
-{
-  title: "Project Name",
-  description: "What this project does",
-  tags: ["React", "Astro"],
-  link: "https://project-link.com",
-  github: "https://github.com/yourrepo/project"
-}
-\`\`\`
-
----
-
-## 📝 Available Commands
-
-\`\`\`bash
-pnpm run dev      # Start development server
-pnpm run build    # Build for production
-pnpm run preview  # Preview production build locally
-pnpm run deploy   # Build and deploy to GitHub Pages
-\`\`\`
 
 ---
 
@@ -169,15 +146,6 @@ pnpm run deploy   # Build and deploy to GitHub Pages
 ## 📄 License
 
 MIT - Feel free to use this for your own portfolio!
-
----
-
-## 💡 Tips
-
-- **Performance:** Astro pre-renders everything as static HTML = blazing fast load times
-- **SEO:** All content is server-rendered for excellent search engine optimization
-- **No JavaScript bloat:** Only interactive components use JavaScript
-- **Easy updates:** Simply edit components and redeploy
 
 ---
 
