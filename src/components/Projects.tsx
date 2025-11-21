@@ -19,12 +19,42 @@ export default function Projects() {
             {
                 title: "MetroVision",
                 description:
-                    "Application de reconnaissance automatique des lignes de métro parisien à partir d’images. Détection de pictogrammes, extraction de caractéristiques visuelles et classification intelligente pour déterminer la ligne correspondante.",
+                        "Reconnaissance automatique des lignes de métro parisien à partir d’images grâce à la détection et classification de pictogrammes.",
                 tags: ["Python", "Vision par Ordinateur", "Machine Learning", "OpenCV"],
                 year: "2025",
                 link: "https://huggingface.co/spaces/LenouvelLouisDev/MetroVision",
                 github: "https://github.com/LenouvelLouis/MetroVision",
                 viewText: "Voir le projet →",
+            },
+            {
+                title: "AI VR Learning",
+                description:
+                    "Platforme VR interactive supportée par IA pour l’apprentissage immersif et adaptatif dans les environnements virtuels.",
+                tags: ["Unity", "C#", "VR", "Machine Learning", "Education"],
+                year: "2025",
+                github: "https://github.com/LenouvelLouis/AI-VR-Learning",
+                viewText: "Voir le projet →",
+                image: "/public/projects/ai-vr-learning.jpg",
+            },
+            {
+                title: "Events-It",
+                description:
+                    "Application de gestion et d’analyse d’événements : création, suivi et visualisation des données en temps réel.",
+                tags: ["JavaScript", "Node.js", "Express", "API", "Web"],
+                year: "2024",
+                github: "https://github.com/LenouvelLouis/Events-It",
+                viewText: "Voir le projet →",
+                image: "/public/projects/events-it.jpg",
+            },
+            {
+                title: "Portefeuille Financier ISEP",
+                description:
+                    "Application de suivi et d’analyse de portefeuille d’investissement : visualisation, indicateurs financiers et prise de décision.",
+                tags: ["Python", "Finance", "Data-visualisation", "Investissement"],
+                year: "2024",
+                github: "https://github.com/LenouvelLouis/Portefeuille-financier-ISEP",
+                viewText: "Voir le projet →",
+                image: "/public/projects/portefeuille-financier-isep.jpg",
             }
         ],
         en: [
@@ -41,12 +71,42 @@ export default function Projects() {
             {
                 title: "MetroVision",
                 description:
-                    "Automatic recognition system for Paris metro lines based on images. Detects signage pictograms, extracts visual features, and classifies them to predict the correct metro line.",
+                    "Automatic recognition of Paris metro lines using image-based pictogram detection and classification.",
                 tags: ["Python", "Computer Vision", "Machine Learning", "OpenCV"],
                 year: "2025",
                 link: "https://huggingface.co/spaces/LenouvelLouisDev/MetroVision",
                 github: "https://github.com/LenouvelLouis/MetroVision",
                 viewText: "View project →",
+            },
+            {
+                title: "AI VR Learning",
+                description:
+                    "AI-driven VR platform for immersive and adaptive learning experiences in virtual environments.",
+                tags: ["Unity", "C#", "VR", "Machine Learning", "Education"],
+                year: "2025",
+                github: "https://github.com/LenouvelLouis/AI-VR-Learning",
+                viewText: "View project →",
+                image: "/public/projects/ai-vr-learning.jpg",
+            },
+            {
+                title: "Events-It",
+                description:
+                    "Event management and analytics application: create, track and visualize event data in real time.",
+                tags: ["JavaScript", "Node.js", "Express", "API", "Web"],
+                year: "2024",
+                github: "https://github.com/LenouvelLouis/Events-It",
+                viewText: "View project →",
+                image: "/public/projects/events-it.jpg",
+            },
+            {
+                title: "ISEP Financial Portfolio",
+                description:
+                    "Investment portfolio tracking and analysis application: dashboard, financial metrics and decision support.",
+                tags: ["Python", "Finance", "Data-visualization", "Investment"],
+                year: "2024",
+                github: "https://github.com/LenouvelLouis/Portefeuille-financier-ISEP",
+                viewText: "View project →",
+                image: "/public/projects/portefeuille-financier-isep.jpg",
             }
         ],
     }
