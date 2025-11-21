@@ -56,7 +56,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
             </button>
           ))}
           <a
-            href="/CV Lenouvel Louis.pdf"
+            href="CV_Lenouvel_Louis.pdf"
             download
             className="px-4 py-2 rounded-lg transition-colors text-sm md:text-base text-foreground hover:bg-muted flex-1 md:flex-none text-center md:text-left"
           >
