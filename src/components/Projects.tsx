@@ -40,7 +40,7 @@ export default function Projects() {
                 title: "Events-It",
                 description:
                     "Application de gestion et d’analyse d’événements : création, suivi et visualisation des données en temps réel.",
-                tags: ["JavaScript", "Node.js", "Express", "API", "Web"],
+                tags: ["PHP", "HTML", "CSS", "API", "Web","MVC"],
                 year: "2024",
                 github: "https://github.com/LenouvelLouis/Events-It",
                 viewText: "Voir le projet →",
@@ -92,7 +92,7 @@ export default function Projects() {
                 title: "Events-It",
                 description:
                     "Event management and analytics application: create, track and visualize event data in real time.",
-                tags: ["JavaScript", "Node.js", "Express", "API", "Web"],
+                tags: ["PHP", "HTML", "CSS", "API", "Web","MVC"],
                 year: "2024",
                 github: "https://github.com/LenouvelLouis/Events-It",
                 viewText: "View project →",
