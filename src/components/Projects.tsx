@@ -15,7 +15,6 @@ export default function Projects() {
                 link: "https://huggingface.co/spaces/LenouvelLouisDev/California-Housing-API",
                 github: "https://github.com/LenouvelLouis/Housing-Prices",
                 viewText: "Voir le projet →",
-                image: "/projects/california-housing.jpg",
             },
             {
                 title: "MetroVision",
@@ -26,7 +25,6 @@ export default function Projects() {
                 link: "https://huggingface.co/spaces/LenouvelLouisDev/MetroVision",
                 github: "https://github.com/LenouvelLouis/MetroVision",
                 viewText: "Voir le projet →",
-                image: "/public/projects/metrovision.jpg",
             }
         ],
         en: [
@@ -39,7 +37,6 @@ export default function Projects() {
                 link: "https://huggingface.co/spaces/LenouvelLouisDev/California-Housing-API",
                 github: "https://github.com/LenouvelLouis/Housing-Prices",
                 viewText: "View project →",
-                image: "/public/projects/california-housing.jpg",
             },
             {
                 title: "MetroVision",
@@ -50,7 +47,6 @@ export default function Projects() {
                 link: "https://huggingface.co/spaces/LenouvelLouisDev/MetroVision",
                 github: "https://github.com/LenouvelLouis/MetroVision",
                 viewText: "View project →",
-                image: "/public/projects/metrovision.jpg",
             }
         ],
     }
@@ -67,11 +63,6 @@ export default function Projects() {
                         key={index}
                         className="relative overflow-hidden rounded-lg border border-border group h-64 md:h-80 hover:shadow-lg transition-shadow"
                     >
-                        <img
-                            src={project.image || "/placeholder.svg"}
-                            alt={project.title}
-                            className="absolute inset-0 w-full h-full object-cover"
-                        />
                         <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors z-10" />
 
                         <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end z-20">
