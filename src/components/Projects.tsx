@@ -15,7 +15,7 @@ export default function Projects() {
                 link: "https://huggingface.co/spaces/LenouvelLouisDev/California-Housing-API",
                 github: "https://github.com/LenouvelLouis/Housing-Prices",
                 viewText: "Voir le projet →",
-                image: "/public/projects/california-housing.jpg",
+                image: "/projects/california-housing.jpg",
             },
             {
                 title: "MetroVision",
