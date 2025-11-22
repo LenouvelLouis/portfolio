@@ -7,43 +7,87 @@ export default function Skills() {
     fr: {
       title: 'Compétences',
       categories: [
-        {
-          category: 'Frontend',
-          skills: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js', 'HTML/CSS'],
-        },
-        {
-          category: 'Backend',
-          skills: ['Node.js', 'PostgreSQL', 'APIs REST', 'Architecture Web'],
-        },
-        {
-          category: 'IA & ML',
-          skills: ['Machine Learning', 'Data Science', 'Python', 'Gradio', 'HuggingFace'],
-        },
-        {
-          category: 'Tools & Platforms',
-          skills: ['Git', 'GitHub', 'HuggingFace', 'Vercel', 'Linux'],
-        },
+          {
+              category: 'Frontend',
+              skills: [
+                  'React', 'Next.js', 'TypeScript', 'Tailwind CSS',
+                  'Astro', 'HTML/CSS', 'UI/UX', 'Responsive Design'
+              ],
+          },
+          {
+              category: 'Backend',
+              skills: [
+                  'Node.js', 'Express', 'PostgreSQL', 'MongoDB',
+                  'APIs REST', 'xAPI (Learning Record Store)', 'Swagger',
+                  'Architecture Web', 'Authentication & Security'
+              ],
+          },
+          {
+              category: 'IA & ML',
+              skills: [
+                  'Python', 'Machine Learning', 'Deep Learning',
+                  'Data Science', 'Gradio', 'HuggingFace',
+                  'Computer Vision', 'Classification & Segmentation'
+              ],
+          },
+          {
+              category: 'VR & 3D',
+              skills: [
+                  'Unity (C#)', 'Meta Quest 3/3S', 'XR Interaction Toolkit',
+                  'AI Recognition in VR', 'Passthrough & AR', 'VFX Basics'
+              ],
+          },
+          {
+              category: 'Tools & Platforms',
+              skills: [
+                  'Git', 'GitHub', 'Docker', 'CI/CD',
+                  'Elasticsearch', 'Linux', 'Vercel',
+                  'Postman', 'Agile/Scrum'
+              ],
+          },
       ],
     },
     en: {
       title: 'Skills',
       categories: [
-        {
-          category: 'Frontend',
-          skills: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js', 'HTML/CSS'],
-        },
-        {
-          category: 'Backend',
-          skills: ['Node.js', 'PostgreSQL', 'REST APIs', 'Web Architecture'],
-        },
-        {
-          category: 'AI & ML',
-          skills: ['Machine Learning', 'Data Science', 'Python', 'Gradio', 'HuggingFace'],
-        },
-        {
-          category: 'Tools & Platforms',
-          skills: ['Git', 'GitHub', 'HuggingFace', 'Vercel', 'Linux'],
-        },
+          {
+              category: 'Frontend',
+              skills: [
+                  'React', 'Next.js', 'TypeScript', 'Tailwind CSS',
+                  'Astro', 'HTML/CSS', 'UI/UX', 'Design Responsive'
+              ],
+          },
+          {
+              category: 'Backend',
+              skills: [
+                  'Node.js', 'Express', 'PostgreSQL', 'MongoDB',
+                  'APIs REST', 'xAPI (Learning Record Store)', 'Swagger',
+                  'Architecture Web', 'Authentification & Sécurité'
+              ],
+          },
+          {
+              category: 'IA & ML',
+              skills: [
+                  'Python', 'Apprentissage Automatique', 'Deep Learning',
+                  'Data Science', 'Gradio', 'HuggingFace',
+                  'Vision par Ordinateur', 'Classification & Segmentation'
+              ],
+          },
+          {
+              category: 'VR & 3D',
+              skills: [
+                  'Unity (C#)', 'Meta Quest 3/3S', 'XR Interaction Toolkit',
+                  'Reconnaissance IA en VR', 'Passthrough & Réalité Mixte', 'Bases VFX'
+              ],
+          },
+          {
+              category: 'Outils & Plateformes',
+              skills: [
+                  'Git', 'GitHub', 'Docker', 'CI/CD',
+                  'Elasticsearch', 'Linux', 'Vercel',
+                  'Postman', 'Jira', 'Méthodes Agiles (Scrum)'
+              ],
+          },
       ],
     },
   }
@@ -51,7 +95,7 @@ export default function Skills() {
   const current = skillsContent[language]
 
   return (
-    <section className="px-12 py-12 max-w-4xl">
+    <section className="px-12 py-12">
       <h3 className="text-3xl font-bold text-foreground mb-8">{current.title}</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {current.categories.map((category, index) => (
