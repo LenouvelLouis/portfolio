@@ -41,7 +41,7 @@ export default function Skills() {
               category: 'Tools & Platforms',
               skills: [
                   'Git', 'GitHub', 'Docker', 'CI/CD',
-                  'Elasticsearch', 'Linux', 'Vercel',
+                  'Elasticsearch', 'Linux',
                   'Postman', 'Agile/Scrum'
               ],
           },
@@ -84,7 +84,7 @@ export default function Skills() {
               category: 'Outils & Plateformes',
               skills: [
                   'Git', 'GitHub', 'Docker', 'CI/CD',
-                  'Elasticsearch', 'Linux', 'Vercel',
+                  'Elasticsearch', 'Linux',
                   'Postman', 'Jira', 'Méthodes Agiles (Scrum)'
               ],
           },
@@ -97,7 +97,7 @@ export default function Skills() {
   return (
     <section className="px-12 py-12">
       <h3 className="text-3xl font-bold text-foreground mb-8">{current.title}</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {current.categories.map((category, index) => (
           <div key={index}>
             <h4 className="text-lg font-semibold text-foreground mb-4">{category.category}</h4>
