@@ -27,6 +27,16 @@ export default function Projects() {
                 viewText: "Voir le projet →",
             },
             {
+                title: "Bee or Not to Bee",
+                description:
+                    "Image-based insect classifier (bees, bumblebees or others) using machine learning on segmented data.",
+                tags: ["Python", "Machine Learning", "Deep Learning", "Computer Vision", "Data Science"],
+                year: "2025",
+                github: "https://github.com/GabrielEstevesDev/Bee-or-Not-to-Bee--Machine-Learning-Based-Bee-Classification",
+                viewText: "View project →",
+                image: "/public/projects/bee-or-not-to-bee.jpg",
+            },
+            {
                 title: "AI VR Learning",
                 description:
                     "Platforme VR interactive supportée par IA pour l’apprentissage immersif et adaptatif dans les environnements virtuels.",
@@ -77,6 +87,16 @@ export default function Projects() {
                 link: "https://huggingface.co/spaces/LenouvelLouisDev/MetroVision",
                 github: "https://github.com/LenouvelLouis/MetroVision",
                 viewText: "View project →",
+            },
+            {
+                title: "Bee or Not to Bee",
+                description:
+                    "Classificateur d’insectes (abeilles, bourdons ou autres) basé sur le machine learning à partir d’images segmentées.",
+                tags: ["Python", "Machine Learning", "Deep Learning", "Vision", "Data Science"],
+                year: "2025",
+                github: "https://github.com/GabrielEstevesDev/Bee-or-Not-to-Bee--Machine-Learning-Based-Bee-Classification",
+                viewText: "Voir le projet →",
+                image: "/public/projects/bee-or-not-to-bee.jpg",
             },
             {
                 title: "AI VR Learning",

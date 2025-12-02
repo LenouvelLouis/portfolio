@@ -26,6 +26,11 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
     },
   }
 
+  const cvLinks: Record<'fr' | 'en', string> = {
+        fr: 'CV_Lenouvel_Louis_FR.pdf',
+        en: 'CV_Lenouvel_Louis_EN.pdf',
+    }
+
   const sections = [
     { id: 'about', label: labels[language].about },
     { id: 'projects', label: labels[language].projects },
@@ -56,7 +61,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
             </button>
           ))}
             <a
-                href="CV_Lenouvel_Louis.pdf"
+                href={cvLinks[language]}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 rounded-lg transition-colors text-sm md:text-base text-foreground hover:bg-muted flex-1 md:flex-none text-center md:text-left"
