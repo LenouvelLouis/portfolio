@@ -4,22 +4,22 @@ export default function About() {
   const { language } = useLanguage()
 
   const content = {
-    fr: {
-      title: 'À propos',
-      paragraphs: [
-        'Apprenti Développeur Full Stack chez IKIGAI Games for Citizens à l\'ISEP Paris. Je contribue à la création et à l\'optimisation du portail web IKIGAI, qui offre un accès centralisé à une gamme de jeux éducatifs innovants pour les étudiants et le grand public.',
-        'Actuellement en école d\'ingénieur informatique, je me spécialise en intelligence artificielle. Cette spécialisation me permet de renforcer mes compétences techniques et d\'apporter des solutions avancées et pertinentes à la digitalisation des services publics et industriels.',
-        'Mes domaines d\'expertise incluent le développement full stack moderne, l\'IA/ML et la création de plateformes web innovantes. Je suis passionné par l\'utilité sociale et l\'intersection entre technologie et impact public.',
-      ],
-    },
-    en: {
-      title: 'About',
-      paragraphs: [
-        'Full Stack Developer Apprentice at IKIGAI Games for Citizens at ISEP Paris. I contribute to the creation and optimization of the IKIGAI web portal, which provides centralized access to a range of innovative educational games for students and the general public.',
-        'Currently studying Computer Engineering, I specialize in Artificial Intelligence. This specialization allows me to strengthen my technical skills and provide advanced solutions for the digitalization of public and industrial services.',
-        'My areas of expertise include modern full stack development, AI/ML, and the creation of innovative web platforms. I\'m passionate about social utility and the intersection between technology and public impact.',
-      ],
-    },
+      fr: {
+          title: 'À propos',
+          paragraphs: [
+              'Apprenti Ingénieur Full Stack et Data Engineer chez IKIGAI Games for Citizens (ISEP Paris). Je suis en charge de l\'optimisation du portail web IKIGAI, notamment via le développement d\'API performantes (Python/FastAPI) et la mise en place de pipelines ETL robustes.',
+              'Parallèlement, je me spécialise en Intelligence Artificielle. Cette formation me confère une expertise technique et analytique, avec un intérêt marqué pour les **pipelines orientés Traitement Automatique du Langage Naturel (NLP)** et les **infrastructures de données hautement scalables**.',
+              'Mes domaines d\'expertise incluent le développement full stack, l\'Ingénierie de la Donnée (ETL/DevOps) et l\'IA/ML. Je suis passionné par l\'utilité sociale et la création de solutions technologiques à fort impact public.',
+          ],
+      },
+      en: {
+          title: 'About',
+          paragraphs: [
+              'Full Stack Engineer and Data Engineer Apprentice at IKIGAI Games for Citizens (ISEP Paris). I am responsible for optimizing the IKIGAI web portal, notably through the development of high-performance APIs (Python/FastAPI) and the implementation of robust ETL pipelines.',
+              'Concurrently, I am specializing in Artificial Intelligence. This specialization provides me with technical and analytical expertise, with a strong interest in **Natural Language Processing (NLP)-oriented pipelines** and **highly scalable data infrastructures**.',
+              'My areas of expertise include full stack development, Data Engineering (ETL/DevOps), and AI/ML. I am passionate about social utility and creating technological solutions with significant public impact.',
+          ],
+      },
   }
 
   const current = content[language]

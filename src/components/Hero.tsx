@@ -4,16 +4,16 @@ export default function Hero() {
   const { language, setLanguage } = useLanguage()
 
   const content = {
-    fr: {
-      title: 'Louis Lenouvel',
-      subtitle: 'Développeur Full Stack & Spécialiste IA',
-      description: 'Développeur Full Stack chez Ikigai - Games for Citizens, spécialisé en intelligence artificielle avec une passion pour créer des solutions numériques innovantes et utiles à la société.',
-    },
-    en: {
-      title: 'Louis Lenouvel',
-      subtitle: 'Full Stack Developer & AI Specialist',
-      description: 'Full Stack Developer at Ikigai - Games for Citizens, specialized in artificial intelligence with a passion for creating innovative digital solutions that benefit society.',
-    },
+      fr: {
+          title: 'Louis Lenouvel',
+          subtitle: 'Développeur Full Stack, Data & IA',
+          description: 'Développeur Full Stack & Data Engineer chez IKIGAI Games, spécialisé en IA. Passionné par les pipelines NLP et la construction d’infrastructures de données hautement scalables.',
+      },
+      en: {
+          title: 'Louis Lenouvel',
+          subtitle: 'Full Stack Developer, Data & AI Specialist',
+          description: 'Full Stack & Data Engineer at IKIGAI Games, specialized in AI. Passionate about NLP-oriented pipelines and building highly scalable data infrastructures.',
+      },
   }
 
   const current = content[language]
