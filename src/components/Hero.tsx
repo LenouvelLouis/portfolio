@@ -6,13 +6,13 @@ export default function Hero() {
   const content = {
       fr: {
           title: 'Louis Lenouvel',
-          subtitle: 'Développeur Full Stack, Data & IA',
-          description: 'Développeur Full Stack & Data Engineer chez IKIGAI Games, spécialisé en IA. Passionné par les pipelines NLP et la construction d’infrastructures de données hautement scalables.',
+          subtitle: 'Data Ingénieur & Spécialiste IA',
+          description: 'Data Ingénieur chez IKIGAI Games, spécialisé en IA. Passionné par les pipelines NLP et la construction d’infrastructures de données hautement scalables.',
       },
       en: {
           title: 'Louis Lenouvel',
-          subtitle: 'Full Stack Developer, Data & AI Specialist',
-          description: 'Full Stack & Data Engineer at IKIGAI Games, specialized in AI. Passionate about NLP-oriented pipelines and building highly scalable data infrastructures.',
+          subtitle: 'Data Engineer & AI Specialist',
+          description: 'Data Engineer at IKIGAI Games, specialized in AI. Passionate about NLP-oriented pipelines and building highly scalable data infrastructures.',
       },
   }
 
