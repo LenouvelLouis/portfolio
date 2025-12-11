@@ -43,7 +43,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
       <div>
         <div className="mb-6 md:mb-12 hidden md:block">
           <h1 className="text-xl md:text-2xl font-bold text-foreground mb-1">Louis Lenouvel</h1>
-          <p className="text-xs md:text-sm text-muted-foreground">Full Stack Developer & AI Specialist</p>
+          <p className="text-xs md:text-sm text-muted-foreground">Data Engineer & AI Specialist</p>
         </div>
 
         <nav className="space-y-1 flex md:flex-col gap-2 md:gap-0 flex-wrap">
