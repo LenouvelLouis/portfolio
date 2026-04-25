@@ -1,87 +1,53 @@
-import { Github, Linkedin, Mail, FileText } from 'lucide-react'
 import { useLanguage } from './LanguageContext'
 
 interface NavigationProps {
-  activeSection: string
-  setActiveSection: (section: string) => void
+  page: string
+  setPage: (page: string) => void
 }
 
-export default function Navigation({ activeSection, setActiveSection }: NavigationProps) {
-  const { language } = useLanguage()
+export default function Navigation({ page, setPage }: NavigationProps) {
+  const { language, setLanguage } = useLanguage()
 
-  const labels = {
-    fr: {
-      about: 'À propos',
-      projects: 'Projets',
-      skills: 'Compétences',
-      contact: 'Contact',
-      cv: 'CV',
-    },
-    en: {
-      about: 'About',
-      projects: 'Projects',
-      skills: 'Skills',
-      contact: 'Contact',
-      cv: 'CV',
-    },
-  }
-
-  const cvLinks: Record<'fr' | 'en', string> = {
-        fr: 'CV_Lenouvel_Louis_FR.pdf',
-        en: 'CV_Lenouvel_Louis_EN.pdf',
-    }
-
-  const sections = [
-    { id: 'about', label: labels[language].about },
-    { id: 'projects', label: labels[language].projects },
-    { id: 'skills', label: labels[language].skills },
-    { id: 'contact', label: labels[language].contact },
+  const items = [
+    { k: 'home', fr: 'Accueil', en: 'Home' },
+    { k: 'about', fr: 'À propos', en: 'About' },
+    { k: 'work', fr: 'Projets', en: 'Work' },
+    { k: 'contact', fr: 'Contact', en: 'Contact' },
   ]
 
   return (
-    <aside className="w-full h-auto md:h-screen md:w-64 border-r border-border bg-card p-4 md:p-8 flex flex-col md:justify-between">
-      <div>
-        <div className="mb-6 md:mb-12 hidden md:block">
-          <h1 className="text-xl md:text-2xl font-bold text-foreground mb-1">Louis Lenouvel</h1>
-          <p className="text-xs md:text-sm text-muted-foreground">Data Engineer & AI Specialist</p>
+    <header className="flex items-center justify-between px-6 md:px-10 py-5 border-b border-line font-sans text-[13px] sticky top-0 bg-background z-10">
+      <div
+        onClick={() => setPage('home')}
+        className="cursor-pointer flex items-center gap-2.5"
+      >
+        <div className="w-7 h-7 bg-foreground rounded-full flex items-center justify-center text-background font-serif text-lg italic">
+          L
         </div>
-
-        <nav className="space-y-1 flex md:flex-col gap-2 md:gap-0 flex-wrap">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => setActiveSection(section.id)}
-              className={`px-4 py-2 rounded-lg transition-colors text-sm md:text-base flex-1 md:flex-none text-center md:text-left ${
-                activeSection === section.id
-                  ? 'bg-primary text-primary-foreground'
-                  : 'text-foreground hover:bg-muted'
-              }`}
-            >
-              {section.label}
-            </button>
-          ))}
-            <a
-                href={cvLinks[language]}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 rounded-lg transition-colors text-sm md:text-base text-foreground hover:bg-muted flex-1 md:flex-none text-center md:text-left"
-            >
-                {labels[language].cv}
-            </a>
-        </nav>
+        <span className="font-semibold hidden sm:inline">Louis Lenouvel</span>
+        <span className="text-muted-foreground hidden md:inline">Data Engineer & AI</span>
       </div>
-
-      <div className="flex gap-4 mt-6 md:mt-0">
-        <a href="https://github.com/LenouvelLouis" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors">
-          <Github size={20} />
-        </a>
-        <a href="https://linkedin.com/in/louis-lenouvel" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors">
-          <Linkedin size={20} />
-        </a>
-        <a href="mailto:mr.lenouvel.louis@gmail.com" className="text-muted-foreground hover:text-accent transition-colors">
-          <Mail size={20} />
-        </a>
-      </div>
-    </aside>
+      <nav className="flex gap-4 md:gap-6 items-center">
+        {items.map((it) => (
+          <a
+            key={it.k}
+            onClick={() => setPage(it.k)}
+            className={`cursor-pointer pb-0.5 transition-colors ${
+              page === it.k
+                ? 'text-foreground font-semibold border-b border-burnt'
+                : 'text-muted-foreground border-b border-transparent hover:text-foreground'
+            }`}
+          >
+            {language === 'fr' ? it.fr : it.en}
+          </a>
+        ))}
+        <button
+          onClick={() => setLanguage(language === 'fr' ? 'en' : 'fr')}
+          className="border border-line bg-transparent px-2.5 py-1 rounded-full cursor-pointer text-xs font-sans text-foreground hover:border-muted-foreground transition-colors"
+        >
+          {language.toUpperCase()}
+        </button>
+      </nav>
+    </header>
   )
 }

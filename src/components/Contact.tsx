@@ -1,68 +1,61 @@
 import { useLanguage } from './LanguageContext'
+import { BASE } from './projectsData'
 
 export default function Contact() {
   const { language } = useLanguage()
 
-  const content = {
-    fr: {
-      title: 'Me contacter',
-      description: 'Intéressé par une collaboration ou une discussion sur les technologies web et l\'IA ? N\'hésitez pas à me contacter !',
-      linkedinLabel: 'LinkedIn',
-      githubLabel: 'GitHub',
-      locationLabel: 'Localisation',
-      location: 'Île-de-France, France',
-      emailLabel: 'Email',
+  const links = [
+    { l: 'EMAIL', v: 'mr.lenouvel.louis@gmail.com', href: 'mailto:mr.lenouvel.louis@gmail.com' },
+    { l: 'LINKEDIN', v: 'linkedin.com/in/louis-lenouvel', href: 'https://linkedin.com/in/louis-lenouvel' },
+    { l: 'GITHUB', v: 'github.com/LenouvelLouis', href: 'https://github.com/LenouvelLouis' },
+    {
+      l: 'CV / PDF',
+      v: language === 'fr' ? 'Télécharger (FR)' : 'Download (EN)',
+      href: `${BASE}${language === 'fr' ? 'CV_Lenouvel_Louis_FR.pdf' : 'CV_Lenouvel_Louis_EN.pdf'}`,
     },
-    en: {
-      title: 'Contact',
-      description: 'Interested in a collaboration or discussion about web technologies and AI? Feel free to reach out!',
-      linkedinLabel: 'LinkedIn',
-      githubLabel: 'GitHub',
-      locationLabel: 'Location',
-      location: 'Île-de-France, France',
-      emailLabel: 'Email',
-    },
-  }
-
-  const current = content[language]
+  ]
 
   return (
-    <section className="px-12 py-12 max-w-4xl">
-      <h3 className="text-3xl font-bold text-foreground mb-8">{current.title}</h3>
-      <div className="space-y-4">
-        <div>
-          <p className="text-muted-foreground mb-6 leading-relaxed">
-            {current.description}
-          </p>
-        </div>
-        <div className="space-y-4">
-          <div>
-            <p className="text-sm text-muted-foreground">{current.emailLabel}</p>
-            <a 
-              href="mailto:mr.lenouvel.louis@gmail.com" 
-              className="text-accent hover:text-accent/80 transition-colors"
-            >
-              mr.lenouvel.louis@gmail.com
-            </a>
-          </div>
-          <div>
-            <p className="text-sm text-muted-foreground">{current.linkedinLabel}</p>
-            <a href="https://linkedin.com/in/louis-lenouvel" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">
-              linkedin.com/in/louis-lenouvel
-            </a>
-          </div>
-          <div>
-            <p className="text-sm text-muted-foreground">{current.githubLabel}</p>
-            <a href="https://github.com/LenouvelLouis" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">
-              github.com/LenouvelLouis
-            </a>
-          </div>
-          <div>
-            <p className="text-sm text-muted-foreground">{current.locationLabel}</p>
-            <p className="text-foreground">{current.location}</p>
-          </div>
-        </div>
+    <main className="px-6 md:px-10 pt-16 md:pt-[72px] pb-24 max-w-[1000px] mx-auto">
+      <div className="flex gap-2.5 items-center mb-6 text-[11px] text-muted-foreground font-mono tracking-wider">
+        <span className="w-5 h-px bg-muted-foreground" />
+        <span>CONTACT</span>
       </div>
-    </section>
+      <h1 className="font-serif text-5xl md:text-[88px] font-normal leading-[0.95] tracking-tight m-0 mb-8">
+        {language === 'fr' ? (
+          <>On <em className="text-burnt">discute</em> ?</>
+        ) : (
+          <>Let's <em className="text-burnt">talk</em>.</>
+        )}
+      </h1>
+      <p className="text-lg text-muted-foreground max-w-[540px] leading-relaxed mb-12">
+        {language === 'fr'
+          ? "Disponible pour un CDI en Ingénierie IA / Data à partir de septembre 2026. Toujours partant pour échanger sur la data, l'IA ou un projet à impact."
+          : "Available for a full-time AI / Data Engineering position from September 2026. Always up to chat about data, AI or any high-impact project."}
+      </p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-line border border-line">
+        {links.map((c) => (
+          <a
+            key={c.l}
+            href={c.href}
+            target={c.l !== 'EMAIL' ? '_blank' : undefined}
+            rel={c.l !== 'EMAIL' ? 'noopener noreferrer' : undefined}
+            className="bg-paper p-6 md:p-8 no-underline text-foreground flex flex-col gap-3 hover:bg-soft transition-colors"
+          >
+            <div className="text-[10px] font-mono text-muted-foreground tracking-wider">{c.l}</div>
+            <div className="font-serif text-xl md:text-2xl">
+              {c.v} <span className="text-burnt">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div className="mt-14 pt-6 border-t border-line flex flex-col sm:flex-row justify-between gap-2 text-[11px] text-muted-foreground font-mono">
+        <span>© 2026 LOUIS LENOUVEL</span>
+        <span>PARIS · UTC+1</span>
+        <span>{language === 'fr' ? 'DISPONIBLE CDI' : 'OPEN FOR FULL-TIME'}</span>
+      </div>
+    </main>
   )
 }
