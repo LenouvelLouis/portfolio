@@ -6,9 +6,10 @@ import type { Project } from './projectsData'
 interface CaseStudyProps {
   project: Project
   setPage: (page: string) => void
+  openProject: (p: Project) => void
 }
 
-export default function CaseStudy({ project, setPage }: CaseStudyProps) {
+export default function CaseStudy({ project, setPage, openProject }: CaseStudyProps) {
   const { language } = useLanguage()
   const p = project
 
@@ -112,7 +113,7 @@ export default function CaseStudy({ project, setPage }: CaseStudyProps) {
 
       {/* Next project */}
       <div
-        onClick={() => setPage('work')}
+        onClick={() => openProject(nextP)}
         className="border-t border-b border-line py-8 cursor-pointer flex justify-between items-center hover:bg-soft/50 transition-colors"
       >
         <div>

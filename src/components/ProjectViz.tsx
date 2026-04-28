@@ -24,7 +24,28 @@ export default function ProjectViz({ n, hue, metric, small }: ProjectVizProps) {
         preserveAspectRatio="xMidYMid slice"
         className="absolute inset-0"
       >
+        {/* 01 PowerShift — energy grid */}
         {s === 0 && (
+          <>
+            <g stroke="rgba(255,255,255,.3)" strokeWidth="1">
+              <line x1="60" y1="80" x2="200" y2="60" />
+              <line x1="200" y1="60" x2="340" y2="90" />
+              <line x1="60" y1="80" x2="120" y2="180" />
+              <line x1="200" y1="60" x2="200" y2="160" />
+              <line x1="340" y1="90" x2="300" y2="200" />
+              <line x1="120" y1="180" x2="200" y2="160" />
+              <line x1="200" y1="160" x2="300" y2="200" />
+              <line x1="120" y1="180" x2="200" y2="250" />
+              <line x1="300" y1="200" x2="200" y2="250" />
+            </g>
+            {[[60,80],[200,60],[340,90],[120,180],[200,160],[300,200],[200,250]].map(([x,y],i)=>(
+              <circle key={i} cx={x} cy={y} r={i<3?8:6} fill="rgba(255,255,255,.85)" />
+            ))}
+            <path d="M 0 270 Q 50 250 100 270 T 200 270 T 300 270 T 400 270" stroke="rgba(255,255,255,.5)" strokeWidth="1.5" fill="none" />
+          </>
+        )}
+        {/* 02 California Housing — diagonal lines + target */}
+        {s === 1 && (
           <>
             <g stroke="rgba(255,255,255,.3)" strokeWidth="1" fill="none">
               {Array.from({ length: 12 }).map((_, i) => (
@@ -35,7 +56,8 @@ export default function ProjectViz({ n, hue, metric, small }: ProjectVizProps) {
             <circle cx="200" cy="150" r="30" fill="rgba(255,255,255,.9)" />
           </>
         )}
-        {s === 1 && (
+        {/* 03 MetroVision — scatter + wave */}
+        {s === 2 && (
           <>
             {Array.from({ length: 40 }).map((_, i) => {
               const x = (i * 37) % 400
@@ -45,7 +67,8 @@ export default function ProjectViz({ n, hue, metric, small }: ProjectVizProps) {
             <path d="M 0 150 Q 100 50 200 150 T 400 150" stroke="rgba(255,255,255,.9)" strokeWidth="2" fill="none" />
           </>
         )}
-        {s === 2 && (
+        {/* 04 Bee or Not to Bee — bar chart */}
+        {s === 3 && (
           <>
             <g fill="rgba(255,255,255,.8)">
               {Array.from({ length: 8 }).map((_, i) => (
@@ -55,7 +78,8 @@ export default function ProjectViz({ n, hue, metric, small }: ProjectVizProps) {
             <line x1="0" y1="230" x2="400" y2="230" stroke="rgba(255,255,255,.9)" strokeWidth="1" />
           </>
         )}
-        {s === 3 && (
+        {/* 05 AI VR Learning — line chart */}
+        {s === 4 && (
           <>
             <g stroke="rgba(255,255,255,.8)" strokeWidth="1.5" fill="none">
               <polyline points="20,200 80,140 140,170 200,90 260,120 320,60 380,100" />
@@ -66,7 +90,8 @@ export default function ProjectViz({ n, hue, metric, small }: ProjectVizProps) {
             ))}
           </>
         )}
-        {s === 4 && (
+        {/* 06 Events-It — concentric circles */}
+        {s === 5 && (
           <>
             <g stroke="rgba(255,255,255,.4)" strokeWidth="1" fill="none">
               {Array.from({ length: 6 }).map((_, i) => (
@@ -76,7 +101,8 @@ export default function ProjectViz({ n, hue, metric, small }: ProjectVizProps) {
             <circle cx="200" cy="150" r="8" fill="rgba(255,255,255,.9)" />
           </>
         )}
-        {s >= 5 && (
+        {/* 07 Portefeuille Financier + fallback — card grid */}
+        {s >= 6 && (
           <>
             <g fill="rgba(255,255,255,.6)">
               {Array.from({ length: 20 }).map((_, i) => (

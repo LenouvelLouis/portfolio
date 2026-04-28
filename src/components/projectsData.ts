@@ -16,8 +16,26 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // — 2026 —
   {
     n: '01',
+    year: '2026',
+    title: 'PowerShift',
+    tag: 'Energy / Data',
+    role: 'Data Engineer',
+    desc: {
+      fr: "Plateforme de simulation et d'optimisation de réseaux électriques : modélisation multi-sources (nucléaire, solaire, éolien), stockage batteries et optimisation LOPF sur données météo réelles.",
+      en: "Energy grid simulation & optimization platform: multi-source modeling (nuclear, solar, wind), battery storage and LOPF optimization on real weather data.",
+    },
+    stack: ['Python', 'FastAPI', 'Vue.js', 'Nuxt', 'TypeScript', 'PostgreSQL', 'Docker', 'PyPSA', 'Tailwind CSS', 'ECharts'],
+    metric: '216+ Tests',
+    hue: ['#0891b2', '#164e63'],
+
+    github: 'https://github.com/LenouvelLouis/PowerShift',
+  },
+  // — 2025 —
+  {
+    n: '02',
     year: '2025',
     title: 'California Housing API',
     tag: 'ML / Data',
@@ -34,7 +52,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/Housing-Prices',
   },
   {
-    n: '02',
+    n: '03',
     year: '2025',
     title: 'MetroVision',
     tag: 'Computer Vision',
@@ -51,7 +69,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/MetroVision',
   },
   {
-    n: '03',
+    n: '04',
     year: '2025',
     title: 'Bee or Not to Bee',
     tag: 'Deep Learning',
@@ -67,7 +85,7 @@ export const projects: Project[] = [
     github: 'https://github.com/GabrielEstevesDev/Bee-or-Not-to-Bee--Machine-Learning-Based-Bee-Classification',
   },
   {
-    n: '04',
+    n: '05',
     year: '2025',
     title: 'AI VR Learning',
     tag: 'VR / AI',
@@ -82,8 +100,9 @@ export const projects: Project[] = [
 
     github: 'https://github.com/LenouvelLouis/AI-VR-Learning',
   },
+  // — 2024 —
   {
-    n: '05',
+    n: '06',
     year: '2024',
     title: 'Events-It',
     tag: 'Web App',
@@ -99,7 +118,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/Events-It',
   },
   {
-    n: '06',
+    n: '07',
     year: '2024',
     title: 'Portefeuille Financier',
     tag: 'Data Viz',

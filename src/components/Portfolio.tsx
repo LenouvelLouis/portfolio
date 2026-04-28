@@ -32,7 +32,7 @@ export default function Portfolio() {
         {page === 'about' && <About />}
         {page === 'work' && <Projects openProject={openProject} />}
         {page === 'contact' && <Contact />}
-        {page === 'case' && <CaseStudy project={project} setPage={navigate} />}
+        {page === 'case' && <CaseStudy project={project} setPage={navigate} openProject={openProject} />}
       </div>
     </LanguageProvider>
   )
