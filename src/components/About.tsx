@@ -29,14 +29,24 @@ export default function About() {
 
   const timeline = [
     {
-      y: '2024 - ' + (language === 'fr' ? "aujourd'hui" : 'present'),
+      y: '2023 - ' + (language === 'fr' ? "aujourd'hui" : 'present'),
       r: 'Data Engineer',
       o: 'IKIGAI Games for Citizens',
+    },
+    {
+      y: '2026',
+      r: language === 'fr' ? 'Semestre académique · Groningen' : 'Exchange Semester · Groningen',
+      o: 'Hanze University (NL)',
     },
     {
       y: '2023 - 2026',
       r: language === 'fr' ? 'Diplôme Ingénieur · Spé. IA' : 'Engineering Degree · AI',
       o: 'ISEP Paris',
+    },
+    {
+      y: '2021 - 2023',
+      r: language === 'fr' ? 'B.U.T. Informatique' : 'B.Sc. Computer Science',
+      o: 'Université Paris Cité',
     },
   ]
 

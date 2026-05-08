@@ -115,10 +115,10 @@ export const projects: Project[] = [
 
     github: 'https://github.com/LenouvelLouis/AI-VR-Learning',
   },
-  // — 2024 —
+  // — 2023 —
   {
     n: '07',
-    year: '2024',
+    year: '2023',
     title: 'Events-It',
     tag: 'Web App',
     role: 'Full-stack',
@@ -134,7 +134,7 @@ export const projects: Project[] = [
   },
   {
     n: '08',
-    year: '2024',
+    year: '2023',
     title: 'Portefeuille Financier',
     tag: 'Data Viz',
     role: 'Data Analyst',
