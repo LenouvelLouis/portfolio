@@ -33,9 +33,24 @@ export const projects: Project[] = [
 
     github: 'https://github.com/LenouvelLouis/PowerShift',
   },
-  // — 2025 —
   {
     n: '02',
+    year: '2026',
+    title: 'DeepRetriev',
+    tag: 'AI / ML',
+    role: 'ML Engineer',
+    desc: {
+      fr: "Pipeline RAG from scratch sans LangChain : ingestion Wikipedia, chunking, embedding, retrieval hybride (BM25 + cosine via RRF), re-ranking cross-encoder, génération via Ollama. Inclut un framework d'évaluation (Recall@k, MRR, LLM-as-judge), tracking MLflow, API FastAPI, UI Streamlit et déploiement Docker.",
+      en: "From-scratch RAG pipeline without LangChain: Wikipedia ingestion, chunking, embedding, hybrid retrieval (BM25 + cosine via RRF), cross-encoder re-ranking, generation via Ollama. Includes evaluation framework (Recall@k, MRR, LLM-as-judge), MLflow tracking, FastAPI API, Streamlit UI, and Docker deployment.",
+    },
+    stack: ['Python', 'FastAPI', 'Streamlit', 'ChromaDB', 'Sentence-Transformers', 'Ollama', 'MLflow', 'Docker', 'BM25', 'Cross-Encoder', 'pytest'],
+    metric: '37 Tests · 4 Phases',
+    hue: ['#8b5cf6', '#4c1d95'],
+    github: 'https://github.com/LenouvelLouis/DeepRetriev',
+  },
+  // — 2025 —
+  {
+    n: '03',
     year: '2025',
     title: 'California Housing API',
     tag: 'ML / Data',
@@ -52,7 +67,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/Housing-Prices',
   },
   {
-    n: '03',
+    n: '04',
     year: '2025',
     title: 'MetroVision',
     tag: 'Computer Vision',
@@ -69,7 +84,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/MetroVision',
   },
   {
-    n: '04',
+    n: '05',
     year: '2025',
     title: 'Bee or Not to Bee',
     tag: 'Deep Learning',
@@ -85,7 +100,7 @@ export const projects: Project[] = [
     github: 'https://github.com/GabrielEstevesDev/Bee-or-Not-to-Bee--Machine-Learning-Based-Bee-Classification',
   },
   {
-    n: '05',
+    n: '06',
     year: '2025',
     title: 'AI VR Learning',
     tag: 'VR / AI',
@@ -102,7 +117,7 @@ export const projects: Project[] = [
   },
   // — 2024 —
   {
-    n: '06',
+    n: '07',
     year: '2024',
     title: 'Events-It',
     tag: 'Web App',
@@ -118,7 +133,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/Events-It',
   },
   {
-    n: '07',
+    n: '08',
     year: '2024',
     title: 'Portefeuille Financier',
     tag: 'Data Viz',
