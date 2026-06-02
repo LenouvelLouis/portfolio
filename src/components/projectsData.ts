@@ -20,6 +20,21 @@ export const projects: Project[] = [
   {
     n: '01',
     year: '2026',
+    title: 'MetroVision-MLOps',
+    tag: 'AI / MLOps',
+    role: 'ML Engineer',
+    desc: {
+      fr: "Industrialisation d'un projet académique de détection de pictogrammes du métro parisien (Hough + CNN + k-NN) en système ML production-grade avec API REST, pipeline MLflow, déploiement Kubernetes et monitoring de drift des features HOG via Evidently AI.",
+      en: "End-to-end productionization of an academic Paris Metro pictogram detection system (Hough + CNN + k-NN) into a production-grade ML platform with REST API, MLflow pipelines, Kubernetes deployment, and HOG feature drift monitoring via Evidently AI.",
+    },
+    stack: ['Python', 'FastAPI', 'TensorFlow', 'scikit-learn', 'Docker', 'Kubernetes', 'Kustomize', 'MLflow', 'Prometheus', 'Grafana', 'Evidently AI', 'GitHub Actions', 'pytest', 'Ruff'],
+    metric: '60 Tests · 7 Phases · Full MLOps Pipeline',
+    hue: ['#06b6d4', '#155e75'],
+    github: 'https://github.com/LenouvelLouis/MetroVision-MLOps',
+  },
+  {
+    n: '02',
+    year: '2026',
     title: 'PowerShift',
     tag: 'Energy / Data',
     role: 'Data Engineer',
@@ -34,7 +49,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/PowerShift',
   },
   {
-    n: '02',
+    n: '03',
     year: '2026',
     title: 'DeepRetriev',
     tag: 'AI / ML',
@@ -50,7 +65,7 @@ export const projects: Project[] = [
   },
   // — 2025 —
   {
-    n: '03',
+    n: '04',
     year: '2025',
     title: 'California Housing API',
     tag: 'ML / Data',
@@ -67,7 +82,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/Housing-Prices',
   },
   {
-    n: '04',
+    n: '05',
     year: '2025',
     title: 'MetroVision',
     tag: 'Computer Vision',
@@ -84,7 +99,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/MetroVision',
   },
   {
-    n: '05',
+    n: '06',
     year: '2025',
     title: 'Bee or Not to Bee',
     tag: 'Deep Learning',
@@ -100,7 +115,7 @@ export const projects: Project[] = [
     github: 'https://github.com/GabrielEstevesDev/Bee-or-Not-to-Bee--Machine-Learning-Based-Bee-Classification',
   },
   {
-    n: '06',
+    n: '07',
     year: '2025',
     title: 'AI VR Learning',
     tag: 'VR / AI',
@@ -117,7 +132,7 @@ export const projects: Project[] = [
   },
   // — 2023 —
   {
-    n: '07',
+    n: '08',
     year: '2023',
     title: 'Events-It',
     tag: 'Web App',
@@ -133,7 +148,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/Events-It',
   },
   {
-    n: '08',
+    n: '09',
     year: '2023',
     title: 'Portefeuille Financier',
     tag: 'Data Viz',
