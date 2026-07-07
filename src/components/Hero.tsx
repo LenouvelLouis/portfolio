@@ -24,8 +24,8 @@ export default function Hero({ setPage }: HeroProps) {
           </h1>
           <p className="text-lg leading-relaxed mt-8 max-w-[440px]" style={{ textWrap: 'pretty' }}>
             {language === 'fr'
-              ? "Ingénieur diplômé de l'ISEP, spécialisé en IA et Data Science. Je conçois et déploie des systèmes d'Intelligence Artificielle appliqués à des problématiques métier. À la recherche d'un CDI en Ingénierie IA / Data."
-              : "Engineering graduate from ISEP, specialized in AI and Data Science. I design and deploy AI systems for real-world business challenges. Looking for a full-time position in AI / Data Engineering."}
+              ? "Ingénieur diplômé de l'ISEP, spécialisé en IA et Data Science. Je conçois et déploie des systèmes d'Intelligence Artificielle appliqués à des problématiques métier. À la recherche de mon premier poste en Ingénierie IA / Data."
+              : "Engineering graduate from ISEP, specialized in AI and Data Science. I design and deploy AI systems for real-world business challenges. Looking for my first role in AI / Data Engineering."}
           </p>
           <div className="flex gap-2.5 mt-8">
             <button
@@ -81,7 +81,7 @@ export default function Hero({ setPage }: HeroProps) {
             <div>
               <div className="text-muted-foreground mb-1">STATUS</div>
               <div className="text-burnt">
-                ● {language === 'fr' ? 'Dispo CDI' : 'Open for full-time'}
+                ● {language === 'fr' ? 'Open to work' : 'Open to work'}
               </div>
             </div>
           </div>

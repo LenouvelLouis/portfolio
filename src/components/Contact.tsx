@@ -30,8 +30,8 @@ export default function Contact() {
       </h1>
       <p className="text-lg text-muted-foreground max-w-[540px] leading-relaxed mb-12">
         {language === 'fr'
-          ? "Disponible pour un CDI en Ingénierie IA / Data à partir de septembre 2026. Toujours partant pour échanger sur la data, l'IA ou un projet à impact."
-          : "Available for a full-time AI / Data Engineering position from September 2026. Always up to chat about data, AI or any high-impact project."}
+          ? "Actuellement à la recherche de mon premier poste en Ingénierie IA / Data. Toujours partant pour échanger sur la data, l'IA ou un projet à impact."
+          : "Looking for my first role in AI / Data Engineering. Always up to chat about data, AI or any high-impact project."}
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-line border border-line">
@@ -54,7 +54,7 @@ export default function Contact() {
       <div className="mt-14 pt-6 border-t border-line flex flex-col sm:flex-row justify-between gap-2 text-[11px] text-muted-foreground font-mono">
         <span>© 2026 LOUIS LENOUVEL</span>
         <span>PARIS · UTC+1</span>
-        <span>{language === 'fr' ? 'DISPONIBLE CDI' : 'OPEN FOR FULL-TIME'}</span>
+        <span>OPEN TO WORK</span>
       </div>
     </main>
   )
