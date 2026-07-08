@@ -5,7 +5,7 @@ export default function Contact() {
   const { language } = useLanguage()
 
   const links = [
-    { l: 'EMAIL', v: 'mr.lenouvel.louis@gmail.com', href: 'mailto:mr.lenouvel.louis@gmail.com' },
+    { l: 'EMAIL', v: 'louis.lenouvel@eleve.isep.fr', href: 'mailto:louis.lenouvel@eleve.isep.fr' },
     { l: 'LINKEDIN', v: 'linkedin.com/in/louis-lenouvel', href: 'https://linkedin.com/in/louis-lenouvel' },
     { l: 'GITHUB', v: 'github.com/LenouvelLouis', href: 'https://github.com/LenouvelLouis' },
     {
