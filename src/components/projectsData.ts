@@ -20,6 +20,20 @@ export const projects: Project[] = [
   {
     n: '01',
     year: '2026',
+    title: 'Sovereign RAG',
+    tag: 'AI / RAG',
+    role: 'Data Engineer',
+    desc: {
+      fr: "Système RAG entièrement auto-hébergé chez IKIGAI Games for Citizens, sans dépendance à une API cloud, pour interroger un corpus documentaire sensible en langage naturel. Ingestion multi-format (PDF, DOCX, PPTX, Markdown, HTML) avec OCR Tesseract, recherche hybride BM25+RRF, reranking cross-encoder, HyDE et décomposition multi-hop. Garde-fou anti-hallucination avec citations tracées à la phrase, détection d'injection de prompt cachée dans les documents, rédaction PII à l'indexation et porte de régression bloquante en CI. Infrastructure GPU montée à la main (passthrough VFIO/IOMMU) : indexation ramenée de 60 secondes à 7,3 secondes.",
+      en: "Fully self-hosted RAG system built at IKIGAI Games for Citizens, with no dependency on a cloud API, to query a sensitive document corpus in natural language. Multi-format ingestion (PDF, DOCX, PPTX, Markdown, HTML) with Tesseract OCR, hybrid BM25+RRF search, cross-encoder reranking, HyDE and multi-hop decomposition. Anti-hallucination guardrail with sentence-level citation tracing, hidden prompt-injection detection in documents, PII redaction at indexing time and a blocking regression gate in CI. Self-built GPU infrastructure (VFIO/IOMMU passthrough): indexing time cut from 60 seconds to 7.3 seconds.",
+    },
+    stack: ['Python', 'Ollama (Mistral)', 'ChromaDB', 'sentence-transformers', 'Tesseract', 'FastAPI', 'Gradio', 'pytest', 'GitLab CI', 'systemd'],
+    metric: 'Indexing 60s → 7.3s',
+    hue: ['#b91c1c', '#450a0a'],
+  },
+  {
+    n: '02',
+    year: '2026',
     title: 'MetroVision-MLOps',
     tag: 'AI / MLOps',
     role: 'ML Engineer',
@@ -33,7 +47,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/MetroVision-MLOps',
   },
   {
-    n: '02',
+    n: '03',
     year: '2026',
     title: 'PowerShift',
     tag: 'Energy / Data',
@@ -49,14 +63,14 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/PowerShift',
   },
   {
-    n: '03',
+    n: '04',
     year: '2026',
     title: 'DeepRetriev',
     tag: 'AI / ML',
     role: 'ML Engineer',
     desc: {
-      fr: "Pipeline RAG from scratch sans LangChain : ingestion Wikipedia, chunking, embedding, retrieval hybride (BM25 + cosine via RRF), re-ranking cross-encoder, génération via Ollama. Inclut un framework d'évaluation (Recall@k, MRR, LLM-as-judge), tracking MLflow, API FastAPI, UI Streamlit et déploiement Docker.",
-      en: "From-scratch RAG pipeline without LangChain: Wikipedia ingestion, chunking, embedding, hybrid retrieval (BM25 + cosine via RRF), cross-encoder re-ranking, generation via Ollama. Includes evaluation framework (Recall@k, MRR, LLM-as-judge), MLflow tracking, FastAPI API, Streamlit UI, and Docker deployment.",
+      fr: "Pipeline RAG from scratch sans LangChain, projet personnel : ingestion Wikipedia, chunking, embedding, retrieval hybride (BM25 + cosine via RRF), re-ranking cross-encoder, génération via Ollama. Inclut un framework d'évaluation (Recall@k, MRR, LLM-as-judge) et un benchmark embeddings x chunking, tracking MLflow, API FastAPI, UI Streamlit et déploiement Docker.",
+      en: "From-scratch RAG pipeline without LangChain, personal project: Wikipedia ingestion, chunking, embedding, hybrid retrieval (BM25 + cosine via RRF), cross-encoder re-ranking, generation via Ollama. Includes an evaluation framework (Recall@k, MRR, LLM-as-judge) and an embeddings x chunking benchmark, MLflow tracking, FastAPI API, Streamlit UI, and Docker deployment.",
     },
     stack: ['Python', 'FastAPI', 'Streamlit', 'ChromaDB', 'Sentence-Transformers', 'Ollama', 'MLflow', 'Docker', 'BM25', 'Cross-Encoder', 'pytest'],
     metric: '37 Tests · 4 Phases',
@@ -65,7 +79,7 @@ export const projects: Project[] = [
   },
   // — 2025 —
   {
-    n: '04',
+    n: '05',
     year: '2025',
     title: 'California Housing API',
     tag: 'ML / Data',
@@ -82,7 +96,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/Housing-Prices',
   },
   {
-    n: '05',
+    n: '06',
     year: '2025',
     title: 'MetroVision',
     tag: 'Computer Vision',
@@ -99,7 +113,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/MetroVision',
   },
   {
-    n: '06',
+    n: '07',
     year: '2025',
     title: 'Bee or Not to Bee',
     tag: 'Deep Learning',
@@ -115,7 +129,7 @@ export const projects: Project[] = [
     github: 'https://github.com/GabrielEstevesDev/Bee-or-Not-to-Bee--Machine-Learning-Based-Bee-Classification',
   },
   {
-    n: '07',
+    n: '08',
     year: '2025',
     title: 'AI VR Learning',
     tag: 'VR / AI',
@@ -132,7 +146,7 @@ export const projects: Project[] = [
   },
   // — 2023 —
   {
-    n: '08',
+    n: '09',
     year: '2023',
     title: 'Events-It',
     tag: 'Web App',
@@ -148,7 +162,7 @@ export const projects: Project[] = [
     github: 'https://github.com/LenouvelLouis/Events-It',
   },
   {
-    n: '09',
+    n: '10',
     year: '2023',
     title: 'Portefeuille Financier',
     tag: 'Data Viz',

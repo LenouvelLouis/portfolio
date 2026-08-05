@@ -30,8 +30,8 @@ export default function Contact() {
       </h1>
       <p className="text-lg text-muted-foreground max-w-[540px] leading-relaxed mb-12">
         {language === 'fr'
-          ? "Actuellement à la recherche de mon premier poste en Ingénierie IA / Data. Toujours partant pour échanger sur la data, l'IA ou un projet à impact."
-          : "Looking for my first role in AI / Data Engineering. Always up to chat about data, AI or any high-impact project."}
+          ? "Fort de 3 ans d'expérience professionnelle en Data Engineering, je m'oriente désormais vers un poste en Intelligence Artificielle. Toujours partant pour échanger sur la data, l'IA ou un projet à impact."
+          : "With 3 years of professional experience in Data Engineering, I'm now moving toward an AI-focused role. Always up to chat about data, AI or any high-impact project."}
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-line border border-line">

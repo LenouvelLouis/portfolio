@@ -29,7 +29,7 @@ export default function About() {
 
   const timeline = [
     {
-      y: '2023 - ' + (language === 'fr' ? "aujourd'hui" : 'present'),
+      y: language === 'fr' ? 'Sept. 2023 - Sept. 2026 (3 ans)' : 'Sept. 2023 - Sept. 2026 (3 years)',
       r: 'Data Engineer',
       o: 'IKIGAI Games for Citizens',
     },

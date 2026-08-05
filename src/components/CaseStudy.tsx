@@ -83,33 +83,35 @@ export default function CaseStudy({ project, setPage, openProject }: CaseStudyPr
       </section>
 
       {/* Links */}
-      <section className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-4 md:gap-10 mb-14">
-        <div className="font-mono text-[10px] text-muted-foreground tracking-wider pt-2">
-          02 / LIENS
-        </div>
-        <div className="flex flex-wrap gap-3">
-          {p.github && (
-            <a
-              href={p.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-foreground text-background px-5 py-3 text-[13px] no-underline font-sans hover:opacity-90 transition-opacity"
-            >
-              GitHub →
-            </a>
-          )}
-          {p.link && (
-            <a
-              href={p.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-transparent text-foreground border border-foreground px-5 py-3 text-[13px] no-underline font-sans hover:bg-foreground hover:text-background transition-colors"
-            >
-              {language === 'fr' ? 'Voir le projet →' : 'View project →'}
-            </a>
-          )}
-        </div>
-      </section>
+      {(p.github || p.link) && (
+        <section className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-4 md:gap-10 mb-14">
+          <div className="font-mono text-[10px] text-muted-foreground tracking-wider pt-2">
+            02 / LIENS
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {p.github && (
+              <a
+                href={p.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-foreground text-background px-5 py-3 text-[13px] no-underline font-sans hover:opacity-90 transition-opacity"
+              >
+                GitHub →
+              </a>
+            )}
+            {p.link && (
+              <a
+                href={p.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-transparent text-foreground border border-foreground px-5 py-3 text-[13px] no-underline font-sans hover:bg-foreground hover:text-background transition-colors"
+              >
+                {language === 'fr' ? 'Voir le projet →' : 'View project →'}
+              </a>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Next project */}
       <div
