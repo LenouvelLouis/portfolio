@@ -1,53 +1,91 @@
+import { useEffect, useState } from 'react'
 import { useLanguage } from './LanguageContext'
+import Logo from './Logo'
+import { BASE } from './projectsData'
 
 interface NavigationProps {
-  page: string
-  setPage: (page: string) => void
+  goSection: (id: string) => void
+  goHome: () => void
 }
 
-export default function Navigation({ page, setPage }: NavigationProps) {
-  const { language, setLanguage } = useLanguage()
+export default function Navigation({ goSection, goHome }: NavigationProps) {
+  const { language, setLanguage, t } = useLanguage()
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 8)
+    on()
+    window.addEventListener('scroll', on, { passive: true })
+    return () => window.removeEventListener('scroll', on)
+  }, [])
 
   const items = [
-    { k: 'home', fr: 'Accueil', en: 'Home' },
-    { k: 'about', fr: 'À propos', en: 'About' },
-    { k: 'work', fr: 'Projets', en: 'Work' },
-    { k: 'contact', fr: 'Contact', en: 'Contact' },
+    { id: 'projets', label: { fr: 'Projets', en: 'Work' } },
+    { id: 'parcours', label: { fr: 'Parcours', en: 'Path' } },
+    { id: 'stack', label: { fr: 'Stack', en: 'Stack' } },
+    { id: 'contact', label: { fr: 'Contact', en: 'Contact' } },
   ]
 
+  const cv = `${BASE}${language === 'fr' ? 'CV_Lenouvel_Louis_FR.pdf' : 'CV_Lenouvel_Louis_EN.pdf'}`
+
   return (
-    <header className="flex items-center justify-between px-6 md:px-10 py-5 border-b border-line font-sans text-[13px] sticky top-0 bg-background z-10">
-      <div
-        onClick={() => setPage('home')}
-        className="cursor-pointer flex items-center gap-2.5"
-      >
-        <div className="w-7 h-7 bg-foreground rounded-full flex items-center justify-center text-background font-serif text-lg italic">
-          L
-        </div>
-        <span className="font-semibold hidden sm:inline">Louis Lenouvel</span>
-        <span className="text-muted-foreground hidden md:inline">Data Engineer & AI</span>
-      </div>
-      <nav className="flex gap-4 md:gap-6 items-center">
-        {items.map((it) => (
-          <a
-            key={it.k}
-            onClick={() => setPage(it.k)}
-            className={`cursor-pointer pb-0.5 transition-colors ${
-              page === it.k
-                ? 'text-foreground font-semibold border-b border-burnt'
-                : 'text-muted-foreground border-b border-transparent hover:text-foreground'
-            }`}
-          >
-            {language === 'fr' ? it.fr : it.en}
-          </a>
-        ))}
-        <button
-          onClick={() => setLanguage(language === 'fr' ? 'en' : 'fr')}
-          className="border border-line bg-transparent px-2.5 py-1 rounded-full cursor-pointer text-xs font-sans text-foreground hover:border-muted-foreground transition-colors"
+    <header
+      className={`sticky top-0 z-30 bg-paper/90 backdrop-blur transition-[border-color] ${
+        scrolled ? 'border-b border-line' : 'border-b border-transparent'
+      }`}
+    >
+      <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-4 px-4 py-3 sm:px-8">
+        <a
+          href="#/"
+          onClick={(e) => {
+            e.preventDefault()
+            goHome()
+          }}
+          className="flex items-center gap-2.5 no-underline"
+          aria-label="Louis Lenouvel, accueil"
         >
-          {language.toUpperCase()}
-        </button>
-      </nav>
+          <Logo size={30} />
+          <span className="text-[15px] font-bold tracking-tight">
+            Louis Lenouvel
+          </span>
+        </a>
+
+        <nav className="flex items-center gap-1 sm:gap-2">
+          <div className="hidden items-center md:flex">
+            {items.map((it) => (
+              <button
+                key={it.id}
+                onClick={() => goSection(it.id)}
+                className="cursor-pointer rounded-full px-3 py-1.5 text-sm font-medium text-ink-2 transition-colors hover:bg-soft hover:text-ink"
+              >
+                {t(it.label)}
+              </button>
+            ))}
+          </div>
+          <div className="ml-1 flex rounded-full border border-line p-0.5 text-xs font-semibold" role="group" aria-label="Langue">
+            {(['fr', 'en'] as const).map((l) => (
+              <button
+                key={l}
+                onClick={() => setLanguage(l)}
+                aria-pressed={language === l}
+                className={`cursor-pointer rounded-full px-2.5 py-1 uppercase transition-colors ${
+                  language === l ? 'bg-ink text-paper' : 'text-muted hover:text-ink'
+                }`}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
+          <a
+            href={cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-1 inline-block rounded-full bg-signal px-3.5 py-1.5 text-sm font-semibold text-[#111a2b] no-underline transition-transform hover:-translate-y-px"
+          >
+            CV
+          </a>
+        </nav>
+      </div>
     </header>
   )
 }

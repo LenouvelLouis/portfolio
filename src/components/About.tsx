@@ -1,90 +1,134 @@
 import { useLanguage } from './LanguageContext'
+import type { T } from './projectsData'
+
+interface Stop {
+  when: T
+  title: T
+  org: string
+  note: T
+  color: string
+  transfer?: T
+  next?: boolean
+}
+
+const stops: Stop[] = [
+  {
+    when: { fr: '2021 → 2023', en: '2021 → 2023' },
+    title: { fr: 'BUT Informatique', en: 'Computer Science degree (BUT)' },
+    org: 'Université Paris Cité',
+    note: {
+      fr: "Les bases : algorithmique, Java, C++, bases de données, web. La plupart des lignes historiques viennent de là.",
+      en: 'The foundations: algorithms, Java, C++, databases, web. Most of the heritage lines come from there.',
+    },
+    color: '#6b7280',
+  },
+  {
+    when: { fr: '2023 → 2026', en: '2023 → 2026' },
+    title: { fr: 'Cycle ingénieur, spécialité Data & IA', en: 'Engineering degree, Data & AI major' },
+    org: 'ISEP Paris',
+    note: {
+      fr: 'Machine learning, deep learning, vision par ordinateur, et beaucoup de projets en équipe.',
+      en: 'Machine learning, deep learning, computer vision, and a lot of team projects.',
+    },
+    color: '#1d4ed8',
+  },
+  {
+    when: { fr: '2023 → 2026', en: '2023 → 2026' },
+    title: { fr: 'Data Engineer', en: 'Data Engineer' },
+    org: 'IKIGAI Games for Citizens',
+    note: {
+      fr: "Des jeux pédagogiques utilisés par des étudiants. J'y ai construit les pipelines de learning analytics (xAPI), la supervision et les sauvegardes de la plateforme, le suivi d'audience, puis le RAG souverain.",
+      en: 'Educational games used by students. I built the learning analytics pipelines (xAPI), platform monitoring and backups, audience tracking, and then the sovereign RAG.',
+    },
+    color: '#e0312b',
+  },
+  {
+    when: { fr: '2026', en: '2026' },
+    title: { fr: "Semestre d'échange", en: 'Exchange semester' },
+    org: 'Hanze University, Groningen (NL)',
+    note: {
+      fr: 'Cours en anglais, modélisation de systèmes énergétiques et projets en équipe internationale.',
+      en: 'Courses in English, energy system modelling and international team projects.',
+    },
+    color: '#f5a100',
+  },
+]
 
 export default function About() {
-  const { language } = useLanguage()
-
-  const sections = [
-    [
-      '01',
-      'BIO',
-      language === 'fr'
-        ? "Ingénieur diplômé de l'ISEP Paris, spécialisé en IA et Data Science. Je conçois et déploie des systèmes d'Intelligence Artificielle (Machine Learning, Deep Learning) appliqués à des problématiques métier."
-        : "Engineering graduate from ISEP Paris, specialized in AI and Data Science. I design and deploy AI systems (Machine Learning, Deep Learning) applied to real-world business challenges.",
-    ],
-    [
-      '02',
-      language === 'fr' ? 'SPÉCIALITÉ' : 'FOCUS',
-      language === 'fr'
-        ? "Parallèlement, je me spécialise en Intelligence Artificielle, avec un intérêt marqué pour les pipelines NLP et les infrastructures de données hautement scalables."
-        : "In parallel, I major in AI with a strong focus on NLP pipelines and highly scalable data infrastructures.",
-    ],
-    [
-      '03',
-      language === 'fr' ? 'VALEURS' : 'VALUES',
-      language === 'fr'
-        ? "Passionné par l'utilité sociale. Je crois que les meilleurs systèmes sont ceux qu'on comprend et qu'on peut maintenir."
-        : "Passionate about social utility. The best systems are the ones you can understand and maintain.",
-    ],
-  ]
-
-  const timeline = [
-    {
-      y: language === 'fr' ? 'Sept. 2023 - Sept. 2026 (3 ans)' : 'Sept. 2023 - Sept. 2026 (3 years)',
-      r: 'Data Engineer',
-      o: 'IKIGAI Games for Citizens',
-    },
-    {
-      y: '2026',
-      r: language === 'fr' ? 'Semestre académique · Groningen' : 'Exchange Semester · Groningen',
-      o: 'Hanze University (NL)',
-    },
-    {
-      y: '2023 - 2026',
-      r: language === 'fr' ? 'Diplôme Ingénieur · Spé. IA' : 'Engineering Degree · AI',
-      o: 'ISEP Paris',
-    },
-    {
-      y: '2021 - 2023',
-      r: language === 'fr' ? 'B.U.T. Informatique' : 'B.Sc. Computer Science',
-      o: 'Université Paris Cité',
-    },
-  ]
+  const { t } = useLanguage()
 
   return (
-    <main className="px-6 md:px-10 pt-16 md:pt-[72px] pb-24 max-w-[1100px] mx-auto">
-      <div className="flex gap-2.5 items-center mb-6 text-[11px] text-muted-foreground font-mono tracking-wider">
-        <span className="w-5 h-px bg-muted-foreground" />
-        <span>À PROPOS / ABOUT</span>
-      </div>
-      <h1 className="font-serif text-4xl md:text-[64px] font-normal leading-[1.05] tracking-tight m-0 mb-12" style={{ textWrap: 'balance' }}>
-        {language === 'fr' ? (
-          <>Construire des <em className="text-burnt">systèmes de données</em> qu'on comprend et qu'on peut maintenir.</>
-        ) : (
-          <>Building <em className="text-burnt">data systems</em> you can read and maintain.</>
-        )}
-      </h1>
-
-      {sections.map(([n, label, txt]) => (
-        <div key={n} className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-4 md:gap-10 mb-10 text-base leading-[1.7]">
-          <div className="font-mono text-[10px] text-muted-foreground tracking-wider pt-2">
-            {n} / {label}
+    <section id="parcours" className="scroll-mt-20 border-t border-line bg-card">
+      <div className="mx-auto grid max-w-[1240px] gap-12 px-4 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-muted">
+            {t({ fr: 'Parcours', en: 'Path' })}
+          </p>
+          <h2 className="m-0 mt-3 text-[34px] font-extrabold leading-[1.02] tracking-[-0.03em] sm:text-5xl">
+            {t({ fr: "Le trajet jusqu'ici", en: 'The ride so far' })}
+          </h2>
+          <div className="mt-6 space-y-4 text-[16px] leading-relaxed text-ink-2">
+            <p className="m-0">
+              {t({
+                fr: "J'ai commencé par le développement web en BUT informatique, puis j'ai travaillé trois ans comme data engineer chez IKIGAI.",
+                en: 'I started with web development during my computer science degree, then worked three years as a data engineer at IKIGAI.',
+              })}
+            </p>
+            <p className="m-0">
+              {t({
+                fr: "Aujourd'hui je travaille surtout sur du machine learning et du RAG. J'aime suivre un projet de bout en bout, des données jusqu'au déploiement.",
+                en: 'Today I mostly work on machine learning and RAG. I like following a project from end to end, from the data to deployment.',
+              })}
+            </p>
+            <p className="m-0 text-muted">
+              {t({
+                fr: "En dehors du code, je fais du sport, de l'urbex, et j'écoute beaucoup Tame Impala.",
+                en: 'Outside of code, I do sport and urban exploring, and I listen to a lot of Tame Impala.',
+              })}
+            </p>
           </div>
-          <div>{txt}</div>
         </div>
-      ))}
 
-      <h2 className="font-serif text-4xl font-normal mt-16 md:mt-[72px] mb-6">
-        {language === 'fr' ? 'Parcours' : 'Timeline'}
-      </h2>
-      <div className="border-t border-line">
-        {timeline.map((e, i) => (
-          <div key={i} className="grid grid-cols-1 md:grid-cols-[180px_1fr_1fr] gap-2 md:gap-10 py-6 border-b border-line items-baseline">
-            <div className="font-mono text-xs text-muted-foreground">{e.y}</div>
-            <div className="font-serif text-xl">{e.r}</div>
-            <div className="text-[13px] text-muted-foreground">{e.o}</div>
-          </div>
-        ))}
+        <ol className="relative m-0 list-none p-0">
+          {stops.map((s, i) => {
+            const last = i === stops.length - 1
+            return (
+              <li key={i} className="relative grid grid-cols-[28px_1fr] gap-x-5 pb-10 last:pb-0">
+                {/* rail vers la station suivante */}
+                {!last && (
+                  <span
+                    className="absolute left-[11px] top-3 w-[6px] rounded-full"
+                    style={{
+                      bottom: -12,
+                      background: stops[i + 1].next
+                        ? 'repeating-linear-gradient(to bottom, var(--muted) 0 6px, transparent 6px 12px)'
+                        : s.color,
+                    }}
+                    aria-hidden="true"
+                  />
+                )}
+                <span
+                  className="relative z-10 mt-0.5 block h-7 w-7 rounded-full bg-card"
+                  style={{ border: `5px solid ${s.color}`, borderStyle: s.next ? 'dashed' : 'solid' }}
+                  aria-hidden="true"
+                />
+                <div>
+                  <div className="text-sm font-semibold tabular-nums text-muted">{t(s.when)}</div>
+                  <h3 className="m-0 mt-1 text-xl font-bold tracking-tight sm:text-[22px]">{t(s.title)}</h3>
+                  {s.org && <div className="mt-0.5 text-[15px] font-medium text-ink-2">{s.org}</div>}
+                  <p className="m-0 mt-2 max-w-[560px] text-[15px] leading-relaxed text-muted">{t(s.note)}</p>
+                  {s.transfer && (
+                    <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 text-[13px] text-ink-2">
+                      <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: '#e0312b' }} aria-hidden="true" />
+                      {t(s.transfer)}
+                    </div>
+                  )}
+                </div>
+              </li>
+            )
+          })}
+        </ol>
       </div>
-    </main>
+    </section>
   )
 }

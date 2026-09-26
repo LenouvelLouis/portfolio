@@ -1,116 +1,100 @@
 import { useLanguage } from './LanguageContext'
+import Bullet from './Bullet'
+import { projects } from './projectsData'
+import type { T } from './projectsData'
+
+// nom affiché -> noms utilisés dans les stacks des projets
+const groups: { title: T; skills: [string, string[]?][] }[] = [
+  {
+    title: { fr: 'Langages', en: 'Languages' },
+    skills: [['Python'], ['SQL', ['PostgreSQL', 'SQLite', 'MySQL', 'dbt']], ['Go'], ['TypeScript'], ['Java'], ['C#']],
+  },
+  {
+    title: { fr: 'ML & GenAI', en: 'ML & GenAI' },
+    skills: [
+      ['scikit-learn'],
+      ['TensorFlow'],
+      ['PyTorch'],
+      ['sentence-transformers'],
+      ['ChromaDB'],
+      ['Ollama'],
+      ['MLflow'],
+      ['OpenCV'],
+      ['Gradio'],
+    ],
+  },
+  {
+    title: { fr: 'Data & backend', en: 'Data & backend' },
+    skills: [['PostgreSQL'], ['SQLite'], ['Airflow'], ['dbt'], ['FastAPI'], ['pandas']],
+  },
+  {
+    title: { fr: 'Infra & MLOps', en: 'Infra & MLOps' },
+    skills: [
+      ['Docker', ['Docker', 'Docker Compose']],
+      ['Kubernetes'],
+      ['CI/CD', ['GitHub Actions', 'GitLab CI']],
+      ['Prometheus / Grafana', ['Prometheus', 'Grafana']],
+      ['Evidently AI'],
+      ['Linux / systemd', ['systemd']],
+    ],
+  },
+  {
+    title: { fr: 'Front', en: 'Front end' },
+    skills: [['React'], ['Nuxt / Vue', ['Nuxt', 'Vue.js']], ['HTMX'], ['Tailwind'], ['Astro', ['__astro']]],
+  },
+]
+
+const usedIn = (names: string[]) =>
+  projects.filter((p) => p.stack.some((s) => names.some((n) => n.toLowerCase() === s.toLowerCase())))
 
 export default function Skills() {
-  const { language } = useLanguage()
-
-  const skillsContent = {
-    fr: {
-      title: 'Compétences',
-      categories: [
-          {
-              category: 'Frontend',
-              skills: [
-                  'React', 'Next.js', 'TypeScript', 'Tailwind CSS',
-                  'Astro', 'HTML/CSS', 'UI/UX', 'Responsive Design'
-              ],
-          },
-          {
-              category: 'Backend',
-              skills: [
-                  'Node.js', 'Express', 'PostgreSQL', 'MongoDB',
-                  'APIs REST', 'xAPI (Learning Record Store)', 'Swagger',
-                  'Architecture Web', 'Authentication & Security'
-              ],
-          },
-          {
-              category: 'IA & ML',
-              skills: [
-                  'Python', 'Machine Learning', 'Deep Learning',
-                  'Data Science', 'Gradio', 'HuggingFace',
-                  'Computer Vision', 'Classification & Segmentation'
-              ],
-          },
-          {
-              category: 'VR & 3D',
-              skills: [
-                  'Unity (C#)', 'Meta Quest 3/3S', 'XR Interaction Toolkit',
-                  'AI Recognition in VR', 'Passthrough & AR', 'VFX Basics'
-              ],
-          },
-          {
-              category: 'Tools & Platforms',
-              skills: [
-                  'Git', 'GitHub', 'Docker', 'CI/CD',
-                  'Elasticsearch', 'Linux',
-                  'Postman', 'Agile/Scrum'
-              ],
-          },
-      ],
-    },
-    en: {
-      title: 'Skills',
-      categories: [
-          {
-              category: 'Frontend',
-              skills: [
-                  'React', 'Next.js', 'TypeScript', 'Tailwind CSS',
-                  'Astro', 'HTML/CSS', 'UI/UX', 'Design Responsive'
-              ],
-          },
-          {
-              category: 'Backend',
-              skills: [
-                  'Node.js', 'Express', 'PostgreSQL', 'MongoDB',
-                  'APIs REST', 'xAPI (Learning Record Store)', 'Swagger',
-                  'Architecture Web', 'Authentification & Sécurité'
-              ],
-          },
-          {
-              category: 'IA & ML',
-              skills: [
-                  'Python', 'Apprentissage Automatique', 'Deep Learning',
-                  'Data Science', 'Gradio', 'HuggingFace',
-                  'Vision par Ordinateur', 'Classification & Segmentation'
-              ],
-          },
-          {
-              category: 'VR & 3D',
-              skills: [
-                  'Unity (C#)', 'Meta Quest 3/3S', 'XR Interaction Toolkit',
-                  'Reconnaissance IA en VR', 'Passthrough & Réalité Mixte', 'Bases VFX'
-              ],
-          },
-          {
-              category: 'Outils & Plateformes',
-              skills: [
-                  'Git', 'GitHub', 'Docker', 'CI/CD',
-                  'Elasticsearch', 'Linux',
-                  'Postman', 'Jira', 'Méthodes Agiles (Scrum)'
-              ],
-          },
-      ],
-    },
-  }
-
-  const current = skillsContent[language]
+  const { t } = useLanguage()
 
   return (
-    <section className="px-12 py-12">
-      <h3 className="text-3xl font-bold text-foreground mb-8">{current.title}</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {current.categories.map((category, index) => (
-          <div key={index}>
-            <h4 className="text-lg font-semibold text-foreground mb-4">{category.category}</h4>
-            <div className="space-y-2">
-              {category.skills.map((skill) => (
-                <div key={skill} className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-accent rounded-full"></div>
-                  <span className="text-muted-foreground">{skill}</span>
-                </div>
-              ))}
-            </div>
+    <section id="stack" className="scroll-mt-20 border-t border-line">
+      <div className="mx-auto max-w-[1240px] px-4 py-16 sm:px-8 sm:py-24">
+        <div>
+          <div>
+            <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-muted">Stack</p>
+            <h2 className="m-0 mt-3 text-[34px] font-extrabold leading-[1.02] tracking-[-0.03em] sm:text-5xl">
+              {t({ fr: 'Les outils, et où je les ai utilisés', en: 'The tools, and where I used them' })}
+            </h2>
           </div>
-        ))}
+        </div>
+
+        <div className="mt-12 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          {groups.map((g) => (
+            <div key={g.title.en}>
+              <h3 className="m-0 border-b-2 border-ink pb-2 text-base font-bold">{t(g.title)}</h3>
+              <ul className="m-0 list-none p-0">
+                {g.skills.map(([name, aliases]) => {
+                  const ps = usedIn(aliases ?? [name])
+                  return (
+                    <li key={name} className="flex items-center justify-between gap-3 border-b border-line py-2.5">
+                      <span className="text-[15px] font-medium">{name}</span>
+                      <span className="flex flex-wrap justify-end gap-1">
+                        {ps.map((p) => (
+                          <a
+                            key={p.slug}
+                            href={`#/projets/${p.slug}`}
+                            title={p.title}
+                            aria-label={p.title}
+                            className="rounded-full no-underline transition-transform hover:scale-110"
+                          >
+                            <Bullet code={p.code} color={p.color} ink={p.ink} size={20} />
+                          </a>
+                        ))}
+                        {name === 'Astro' && (
+                          <span className="text-[12px] text-muted">{t({ fr: 'ce site', en: 'this site' })}</span>
+                        )}
+                      </span>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

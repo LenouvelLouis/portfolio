@@ -1,161 +1,81 @@
 import { useLanguage } from './LanguageContext'
-import ProjectViz from './ProjectViz'
-import { projects, BASE } from './projectsData'
+import { BASE, projects } from './projectsData'
 
 interface HeroProps {
-  setPage: (page: string) => void
+  goSection: (id: string) => void
 }
 
-export default function Hero({ setPage }: HeroProps) {
-  const { language } = useLanguage()
+export default function Hero({ goSection }: HeroProps) {
+  const { t } = useLanguage()
+
+  const facts = [
+    { v: '3', l: { fr: "ans d'expérience en data engineering, en production", en: 'years of data engineering experience, in production' } },
+    { v: String(projects.length), l: { fr: 'projets détaillés plus bas, du RAG au MLOps', en: 'projects detailed below, from RAG to MLOps' } },
+    { v: 'FR · EN', l: { fr: "je travaille dans les deux langues", en: 'I work in both languages' } },
+  ]
 
   return (
-    <main className="px-6 md:px-10 pt-16 md:pt-[72px] pb-24 max-w-[1400px] mx-auto">
-      {/* Hero section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[72px] items-start mb-24">
+    <section className="mx-auto max-w-[1240px] px-4 pb-16 pt-10 sm:px-8 sm:pt-16">
+      <div className="grid items-center gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
         <div>
-          <div className="flex gap-2.5 items-center mb-8 text-[11px] text-muted-foreground font-mono tracking-wider">
-            <span className="w-5 h-px bg-muted-foreground" />
-            <span>PORTFOLIO 2026</span>
-          </div>
-          <h1 className="font-serif text-6xl md:text-[88px] leading-[0.95] font-normal tracking-tight m-0">
-            Data Engineer<br />
-            <span className="italic text-burnt">& AI</span> craft.
-          </h1>
-          <p className="text-lg leading-relaxed mt-8 max-w-[440px]" style={{ textWrap: 'pretty' }}>
-            {language === 'fr'
-              ? "Ingénieur diplômé de l'ISEP, spécialisé en IA et Data Science. Je conçois et déploie des systèmes d'Intelligence Artificielle appliqués à des problématiques métier. Fort de 3 ans d'expérience professionnelle en Data Engineering, je m'oriente désormais vers un poste en Intelligence Artificielle."
-              : "Engineering graduate from ISEP, specialized in AI and Data Science. I design and deploy AI systems for real-world business challenges. With 3 years of professional experience in Data Engineering, I'm now moving toward an AI-focused role."}
+          <p className="m-0 mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1 text-[13px] font-medium text-ink-2">
+            <span className="h-2 w-2 rounded-full bg-ok" aria-hidden="true" />
+            Data & ML Engineer · Paris
           </p>
-          <div className="flex gap-2.5 mt-8">
+          <h1 className="m-0 text-[42px] font-extrabold leading-[0.98] tracking-[-0.035em] sm:text-[64px] lg:text-[76px]">
+            {t({
+              fr: 'Je construis des pipelines de données,',
+              en: 'I build data pipelines,',
+            })}{' '}
+            <span className="text-muted">
+              {t({ fr: 'et les modèles qui roulent dessus.', en: 'and the models that run on them.' })}
+            </span>
+          </h1>
+          <p className="m-0 mt-7 max-w-[560px] text-[17px] leading-relaxed text-ink-2 sm:text-lg">
+            {t({
+              fr: "Diplômé de l'ISEP en 2026. J'ai passé trois ans chez IKIGAI comme data engineer, à faire tourner des pipelines de données en production. Aujourd'hui je travaille surtout sur du machine learning et de la GenAI, avec la même obsession : que ça marche encore dans six mois.",
+              en: "ISEP graduate, class of 2026. I spent three years at IKIGAI as a data engineer, keeping data pipelines running in production. These days I mostly work on machine learning and GenAI, with the same obsession: it should still work six months from now.",
+            })}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
             <button
-              onClick={() => setPage('work')}
-              className="bg-foreground text-background border-none px-5 py-3 text-[13px] cursor-pointer font-sans hover:opacity-90 transition-opacity"
+              onClick={() => goSection('projets')}
+              className="cursor-pointer rounded-full bg-ink px-5 py-3 text-[15px] font-semibold text-paper transition-transform hover:-translate-y-px"
             >
-              {language === 'fr' ? 'Voir les projets →' : 'See projects →'}
+              {t({ fr: 'Voir les projets', en: 'See the work' })} ↓
             </button>
             <button
-              onClick={() => setPage('contact')}
-              className="bg-transparent text-foreground border border-foreground px-5 py-3 text-[13px] cursor-pointer font-sans hover:bg-foreground hover:text-background transition-colors"
+              onClick={() => goSection('contact')}
+              className="cursor-pointer rounded-full border border-ink/25 bg-transparent px-5 py-3 text-[15px] font-semibold text-ink transition-colors hover:border-ink"
             >
-              {language === 'fr' ? 'Me contacter' : 'Get in touch'}
+              {t({ fr: 'Me contacter', en: 'Get in touch' })}
             </button>
           </div>
         </div>
 
-        {/* Portrait card */}
-        <div className="bg-paper border border-line p-5">
-          <div className="aspect-[4/5] bg-soft relative overflow-hidden">
-            {/* Real portrait photo */}
+        <div className="relative mx-auto w-full max-w-[440px] lg:max-w-none">
+          <div className="overflow-hidden rounded-2xl bg-soft">
             <img
               src={`${BASE}portrait.jpg`}
               alt="Louis Lenouvel"
-              className="absolute inset-0 w-full h-full object-cover"
+              width={1200}
+              height={1600}
+              className="block aspect-[4/4.2] w-full object-cover"
+              style={{ objectPosition: '50% 38%' }}
               loading="eager"
             />
-            {/* Decorative dashed orbit overlay (kept from SVG) */}
-            <svg
-              width="100%"
-              height="100%"
-              viewBox="0 0 400 500"
-              preserveAspectRatio="xMidYMid slice"
-              className="absolute inset-0 pointer-events-none"
-              aria-hidden="true"
-            >
-              <circle cx="200" cy="250" r="180" fill="none" stroke="#c2410c" strokeWidth="1" strokeDasharray="2,3" opacity="0.55" />
-            </svg>
-          </div>
-          <div className="mt-4 grid grid-cols-2 gap-3 text-xs font-mono">
-            <div>
-              <div className="text-muted-foreground mb-1">BASED</div>
-              <div>Paris, FR</div>
-            </div>
-            <div>
-              <div className="text-muted-foreground mb-1">ROLE</div>
-              <div>Data Eng. @ IKIGAI</div>
-            </div>
-            <div>
-              <div className="text-muted-foreground mb-1">EDU</div>
-              <div>ISEP · Diplômé IA</div>
-            </div>
-            <div>
-              <div className="text-muted-foreground mb-1">STATUS</div>
-              <div className="text-burnt">
-                ● {language === 'fr' ? 'Open to work' : 'Open to work'}
-              </div>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* NOW ticker */}
-      <div className="py-6 border-t border-b border-line flex gap-12 text-xs font-mono text-muted-foreground overflow-hidden whitespace-nowrap">
-        <span><span className="text-burnt">●</span> NOW {language === 'fr' ? 'Pipelines NLP chez IKIGAI' : 'NLP pipelines at IKIGAI'}</span>
-        <span>→ {language === 'fr' ? 'Diplômé ISEP 2026' : 'ISEP Graduate 2026'}</span>
-        <span>→ {language === 'fr' ? 'Lecture · Designing Data-Intensive Apps' : 'Reading · DDIA'}</span>
-        <span>→ 2026 / Paris, FR</span>
-      </div>
-
-      {/* Project grid */}
-      <div className="mt-20">
-        <div className="flex justify-between items-baseline mb-7">
-          <h2 className="font-serif text-4xl font-normal tracking-tight m-0">
-            {language === 'fr' ? 'Projets récents' : 'Recent work'}
-          </h2>
-          <a onClick={() => setPage('work')} className="cursor-pointer text-burnt text-[13px] hover:opacity-80 transition-opacity">
-            {language === 'fr' ? 'Tout voir →' : 'See all →'}
-          </a>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {projects.slice(0, 4).map((p) => (
-            <div
-              key={p.n}
-              onClick={() => setPage('work')}
-              className="bg-paper border border-line cursor-pointer overflow-hidden hover:border-muted-foreground transition-colors"
-            >
-              <ProjectViz n={p.n} hue={p.hue} metric={p.metric} small />
-              <div className="p-5">
-                <div className="flex justify-between text-[10px] font-mono text-muted-foreground mb-2.5 tracking-wider">
-                  <span>{p.n} / {p.tag.toUpperCase()}</span>
-                  <span>{p.year}</span>
-                </div>
-                <div className="font-serif text-[26px] font-normal mb-2">{p.title}</div>
-                <div className="text-[13px] text-muted-foreground leading-relaxed">{p.desc[language]}</div>
-                <div className="mt-3 flex flex-wrap gap-1">
-                  {p.stack.map((s) => (
-                    <span key={s} className="text-[10px] font-mono px-1.5 py-0.5 border border-line text-muted-foreground">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Skills quick view */}
-      <div className="mt-20 pt-8 border-t border-line">
-        <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-8">
-          <div className="font-serif text-[22px] italic">
-            {language === 'fr' ? 'Compétences clés' : 'Core skills'}
+      <dl className="m-0 mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
+        {facts.map((f) => (
+          <div key={f.v} className="bg-card px-5 py-5">
+            <dt className="text-3xl font-extrabold tracking-tight">{f.v}</dt>
+            <dd className="m-0 mt-1 text-sm text-muted">{t(f.l)}</dd>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
-            {[
-              ['Python', 'FastAPI', 'SQL', 'Airflow'],
-              ['PyTorch', 'Transformers', 'spaCy', 'FAISS'],
-              ['Docker', 'K8s', 'Terraform', 'AWS'],
-              ['dbt', 'Kafka', 'Postgres', 'Parquet'],
-            ].map((col, i) => (
-              <div key={i}>
-                {col.map((s) => (
-                  <div key={s} className="py-1">{s}</div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </main>
+        ))}
+      </dl>
+    </section>
   )
 }

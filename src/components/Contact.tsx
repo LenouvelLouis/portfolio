@@ -1,61 +1,90 @@
+import { useState } from 'react'
 import { useLanguage } from './LanguageContext'
+import Logo from './Logo'
 import { BASE } from './projectsData'
 
+const EMAIL = 'mr.lenouvel.louis@gmail.com'
+
 export default function Contact() {
-  const { language } = useLanguage()
+  const { t } = useLanguage()
+  const [copied, setCopied] = useState(false)
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1800)
+    } catch {
+      window.location.href = `mailto:${EMAIL}`
+    }
+  }
 
   const links = [
-    { l: 'EMAIL', v: 'mr.lenouvel.louis@gmail.com', href: 'mailto:mr.lenouvel.louis@gmail.com' },
-    { l: 'LINKEDIN', v: 'linkedin.com/in/louis-lenouvel', href: 'https://linkedin.com/in/louis-lenouvel' },
-    { l: 'GITHUB', v: 'github.com/LenouvelLouis', href: 'https://github.com/LenouvelLouis' },
-    {
-      l: 'CV / PDF',
-      v: language === 'fr' ? 'Télécharger (FR)' : 'Download (EN)',
-      href: `${BASE}${language === 'fr' ? 'CV_Lenouvel_Louis_FR.pdf' : 'CV_Lenouvel_Louis_EN.pdf'}`,
-    },
+    { l: 'LinkedIn', v: 'in/louis-lenouvel', href: 'https://www.linkedin.com/in/louis-lenouvel/' },
+    { l: 'GitHub', v: 'LenouvelLouis', href: 'https://github.com/LenouvelLouis' },
+    { l: 'CV', v: 'Français (PDF)', href: `${BASE}CV_Lenouvel_Louis_FR.pdf` },
+    { l: 'Resume', v: 'English (PDF)', href: `${BASE}CV_Lenouvel_Louis_EN.pdf` },
   ]
 
   return (
-    <main className="px-6 md:px-10 pt-16 md:pt-[72px] pb-24 max-w-[1000px] mx-auto">
-      <div className="flex gap-2.5 items-center mb-6 text-[11px] text-muted-foreground font-mono tracking-wider">
-        <span className="w-5 h-px bg-muted-foreground" />
-        <span>CONTACT</span>
-      </div>
-      <h1 className="font-serif text-5xl md:text-[88px] font-normal leading-[0.95] tracking-tight m-0 mb-8">
-        {language === 'fr' ? (
-          <>On <em className="text-burnt">discute</em> ?</>
-        ) : (
-          <>Let's <em className="text-burnt">talk</em>.</>
-        )}
-      </h1>
-      <p className="text-lg text-muted-foreground max-w-[540px] leading-relaxed mb-12">
-        {language === 'fr'
-          ? "Fort de 3 ans d'expérience professionnelle en Data Engineering, je m'oriente désormais vers un poste en Intelligence Artificielle. Toujours partant pour échanger sur la data, l'IA ou un projet à impact."
-          : "With 3 years of professional experience in Data Engineering, I'm now moving toward an AI-focused role. Always up to chat about data, AI or any high-impact project."}
-      </p>
+    <section id="contact" className="scroll-mt-20 bg-board text-white">
+      <div className="mx-auto max-w-[1240px] px-4 pb-10 pt-16 sm:px-8 sm:pt-24">
+        <p className="m-0 font-mono text-[12px] tracking-[0.16em] text-signal">TERMINUS · CONTACT</p>
+        <h2 className="m-0 mt-4 max-w-[900px] text-[40px] font-extrabold leading-[1] tracking-[-0.035em] sm:text-6xl lg:text-7xl">
+          {t({ fr: 'Envie de parler data ou ML ?', en: 'Want to talk data or ML?' })}
+        </h2>
+        <p className="m-0 mt-6 max-w-[560px] text-[17px] leading-relaxed text-white/70">
+          {t({
+            fr: "Une question sur un projet, un retour, ou simplement l'envie d'échanger : le plus simple, c'est un mail.",
+            en: 'A question about a project, some feedback, or just a chat: email is the easiest way to reach me.',
+          })}
+        </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-line border border-line">
-        {links.map((c) => (
+        <div className="mt-10 flex flex-wrap items-center gap-3">
           <a
-            key={c.l}
-            href={c.href}
-            target={c.l !== 'EMAIL' ? '_blank' : undefined}
-            rel={c.l !== 'EMAIL' ? 'noopener noreferrer' : undefined}
-            className="bg-paper p-6 md:p-8 no-underline text-foreground flex flex-col gap-3 hover:bg-soft transition-colors"
+            href={`mailto:${EMAIL}`}
+            className="break-all rounded-full bg-signal px-5 py-3 text-[15px] font-semibold text-[#111a2b] no-underline transition-transform hover:-translate-y-px sm:text-lg"
           >
-            <div className="text-[10px] font-mono text-muted-foreground tracking-wider">{c.l}</div>
-            <div className="font-serif text-xl md:text-2xl">
-              {c.v} <span className="text-burnt">→</span>
-            </div>
+            {EMAIL}
           </a>
-        ))}
-      </div>
+          <button
+            onClick={copy}
+            className="cursor-pointer rounded-full border border-white/25 bg-transparent px-4 py-3 text-[15px] font-medium text-white transition-colors hover:border-white"
+            aria-live="polite"
+          >
+            {copied ? t({ fr: 'Copié ✓', en: 'Copied ✓' }) : t({ fr: "Copier l'adresse", en: 'Copy address' })}
+          </button>
+        </div>
 
-      <div className="mt-14 pt-6 border-t border-line flex flex-col sm:flex-row justify-between gap-2 text-[11px] text-muted-foreground font-mono">
-        <span>© 2026 LOUIS LENOUVEL</span>
-        <span>PARIS · UTC+1</span>
-        <span>OPEN TO WORK</span>
+        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          {links.map((c) => (
+            <a
+              key={c.l}
+              href={c.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between bg-board-2 px-5 py-5 no-underline transition-colors hover:bg-[#223049]"
+            >
+              <span>
+                <span className="block text-[13px] text-white/50">{c.l}</span>
+                <span className="block text-[17px] font-semibold">{c.v}</span>
+              </span>
+              <span className="text-white/50 transition-transform group-hover:translate-x-0.5 group-hover:text-signal" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <footer className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 text-[13px] text-white/45 sm:flex-row sm:items-center sm:justify-between">
+          <span className="flex items-center gap-2.5">
+            <Logo size={20} className="[&_circle:first-child]:fill-white [&_path]:fill-[#111a2b]" />
+            © 2026 Louis Lenouvel
+          </span>
+          <span>{t({ fr: 'Paris, France', en: 'Paris, France' })}</span>
+          <span>{t({ fr: 'Fait main avec Astro et React', en: 'Handmade with Astro and React' })}</span>
+        </footer>
       </div>
-    </main>
+    </section>
   )
 }

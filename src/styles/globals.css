@@ -1,77 +1,112 @@
 @import 'tailwindcss';
 
-@font-face {
-  font-family: 'Instrument Serif';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+/*
+  Palette
+  paper   : fond, blanc légèrement froid
+  ink     : bleu nuit presque noir (texte, panneaux)
+  signal  : jaune des tableaux d'affichage
+*/
+:root {
+  --paper: #f3f3f0;
+  --card: #ffffff;
+  --ink: #111a2b;
+  --ink-2: #3c4658;
+  --muted: #6a7384;
+  --line: #d9dbd6;
+  --soft: #e8e9e4;
+  --board: #111a2b;
+  --board-2: #1b263a;
+  --signal: #ffcf33;
+  --ok: #4ade80;
 }
 
-:root {
-  --bg: #f4f1ea;
-  --ink: #1a1714;
-  --muted: #6b6459;
-  --line: #d9d2c4;
-  --accent: #c2410c;
-  --paper: #ffffff;
-  --soft: #ede8dc;
-
-  --background: var(--bg);
-  --foreground: var(--ink);
-  --card: var(--paper);
-  --card-foreground: var(--ink);
-  --popover: var(--paper);
-  --popover-foreground: var(--ink);
-  --primary: var(--ink);
-  --primary-foreground: var(--bg);
-  --secondary: var(--soft);
-  --secondary-foreground: var(--ink);
-  --muted-color: var(--soft);
-  --muted-foreground: var(--muted);
-  --accent-color: var(--accent);
-  --accent-foreground: var(--paper);
-  --border: var(--line);
-  --input: var(--line);
-  --ring: var(--accent);
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0d121c;
+    --card: #141b28;
+    --ink: #e9ecf1;
+    --ink-2: #c3c9d3;
+    --muted: #8a93a3;
+    --line: #262f3f;
+    --soft: #1a2231;
+    --board: #070b12;
+    --board-2: #121a28;
+  }
 }
 
 @theme inline {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Instrument Serif', Georgia, serif;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted-color);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent-color);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-ink: var(--ink);
-  --color-line: var(--line);
+  --font-sans: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
   --color-soft: var(--soft);
-  --color-burnt: var(--accent);
+  --color-board: var(--board);
+  --color-board-2: var(--board-2);
+  --color-signal: var(--signal);
+  --color-ok: var(--ok);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--line);
     box-sizing: border-box;
   }
-  body {
-    @apply bg-background text-foreground;
-    margin: 0;
-    padding: 0;
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--signal);
+    color: #111a2b;
+  }
+  a {
+    color: inherit;
+  }
+  :focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* Tableau d'affichage */
+.flap {
+  display: inline-block;
+  min-width: 0.62em;
+  text-align: center;
+}
+
+/* Tracé de ligne : animation d'entrée */
+@keyframes draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.track-draw {
+  transform-origin: left center;
+  animation: draw 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes blink {
+  0%, 60% { opacity: 1; }
+  61%, 100% { opacity: 0.25; }
+}
+.blink {
+  animation: blink 1.6s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .track-draw, .blink { animation: none; }
 }
